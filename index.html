@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mohammedan Sporting Club — Faridpur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+<style>
+/* ===== BASE ===== */
+:root{--black:#070807;--ink:#111;--paper:#f4f4f0;--line:#d6d6d0;--muted:#777;--green:#93ff57;--green2:#3d8f32;font-family:Inter,'Noto Sans Bengali',sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper)}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+.site{overflow-x:hidden}
+
+/* ===== NAV ===== */
+.nav{height:88px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;gap:30px;background:rgba(5,7,5,.72);backdrop-filter:blur(20px);color:#fff;position:fixed;z-index:20;left:0;right:0;top:0;border-bottom:1px solid rgba(255,255,255,.09)}
+.brand{border:0;background:none;color:#fff;display:flex;align-items:center;gap:10px;text-align:left;padding:0;flex-direction:row}
+.brand img{width:54px;height:54px;object-fit:contain;filter:none;mix-blend-mode:normal;order:1;margin-top:-12px;margin-left:14px}
+.brand > div{order:2}
+.brand strong{display:block;font-size:17px;font-weight:900;letter-spacing:.13em;color:#fff}
+.brand span{display:block;font-family:'Montserrat',sans-serif;font-weight:800;font-size:10px;color:#bbb;letter-spacing:.17em;margin-top:5px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links button{border:0;background:none;color:#c7cbc5;text-transform:uppercase;font-size:13px;font-weight:800;letter-spacing:.12em;position:relative;padding:12px 2px;transition:color .25s ease,transform .25s ease}
+.nav-links button::after{content:"";position:absolute;left:0;right:100%;bottom:4px;height:2px;background:var(--green);transition:right .3s cubic-bezier(.22,1,.36,1)}
+.nav-links button:hover{color:#fff;transform:translateY(-2px)}
+.nav-links button:hover::after{right:0}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.language{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);padding:0 14px;min-width:70px;height:42px;justify-content:center;background:rgba(255,255,255,.045);color:#fff;text-transform:none;letter-spacing:0;font-size:15px;font-weight:700;cursor:pointer;transition:.3s ease}
+.lang-ico{width:24px;height:24px;flex:none;overflow:visible}
+.lang-ico .tile{fill:#fff}
+.lang-ico .tile.front{stroke:#0c0c0c;stroke-width:1.5}
+.lang-ico .glyph{fill:#111;font-size:9.5px;font-weight:800;font-family:inherit}
+.lang-ico .swap{fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round}
+.lang-ico .swaphead{fill:#fff}
+/* Bengali matras need more room than the tight Latin line-height */
+/* Bengali matras and conjuncts need more vertical room than the tight Latin settings */
+[data-lang="bn"] .hero h1{font-size:clamp(20px,calc(5.6vw - 20px),66px);line-height:1.22;padding-top:.06em}
+[data-lang="bn"] .hero h1 b,[data-lang="bn"] .hero h1 span,[data-lang="bn"] .hero h1 em{line-height:1.22;overflow:visible}
+[data-lang="bn"] .hero h1 span{font-size:calc(1em - 26px);margin-top:2px}
+[data-lang="bn"] .hero h1 em{font-size:calc(1em - 20px);margin-top:2px}
+[data-lang="bn"] .hero-title-block{margin-top:40px}
+[data-lang="bn"] .hero-sub{margin-top:45px}
+[data-lang="bn"] .brand strong{line-height:1.4}
+[data-lang="bn"] .brand span{line-height:1.6}
+[data-lang="bn"] .section-heading h2{line-height:1.2;padding-top:.06em}
+[data-lang="bn"] #sportsTitle,[data-lang="bn"] .section-heading.below h2{white-space:normal;line-height:1.2}
+[data-lang="bn"] .about-tab strong{line-height:1.45}
+[data-lang="bn"] .person-meta h3{line-height:1.5}
+[data-lang="bn"] .hero-gov-btn{line-height:1.5}
+.language:hover{border-color:var(--green);background:rgba(147,255,87,.1);transform:translateY(-2px);box-shadow:0 10px 30px rgba(147,255,87,.12)}
+.language svg-icon{font-size:16px;color:var(--green)}
+.menu-btn{display:none;border:1px solid #333;background:#111;color:#fff;padding:8px 10px;font-size:20px}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;padding:145px 6vw 75px;display:flex;align-items:center;justify-content:center;position:relative;color:#fff;background:linear-gradient(90deg,rgba(2,5,3,.65) 0%,rgba(3,7,4,.55) 30%,rgba(3,8,4,.35) 60%,rgba(2,5,3,.55) 100%),linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,.08)),url('images/football-field.png') center/cover no-repeat}
+.hero-noise{position:absolute;inset:0;opacity:.08;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+.hero-grid-lines{position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.9%,rgba(255,255,255,.08) 50%,transparent 50.1%),linear-gradient(0deg,transparent 49.9%,rgba(255,255,255,.06) 50%,transparent 50.1%);opacity:.25;pointer-events:none}
+.hero-copy{position:relative;z-index:2;width:100%}
+.hero-main-row{display:grid;grid-template-columns:220px minmax(0,1fr);gap:46px;align-items:flex-start;max-width:1500px}
+.hero-logo-wrap{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:6px}
+.hero-logo-large{width:min(180px,14vw);height:auto;object-fit:contain;filter:drop-shadow(0 18px 35px rgba(0,0,0,.55));transition:transform .6s cubic-bezier(.22,1,.36,1),filter .6s ease;margin-left:130px;margin-top:2cm}
+.hero-logo-wrap:hover .hero-logo-large{transform:translateY(-8px) scale(1.035) rotate(-1deg);filter:drop-shadow(0 28px 45px rgba(0,0,0,.7))}
+.hero-title-block{text-align:center;margin-top:70px;transform:translateX(-3cm)}
+.hero-kicker{display:flex;align-items:center;gap:12px;color:#fff;font-size:12px;font-weight:800;letter-spacing:.22em;margin-bottom:24px;justify-content:flex-start;margin-left:165px;margin-top:12px}
+.hero h1{margin:0 0 0 165px;font-size:clamp(21px,calc(7.5vw - 26px),88px);line-height:.82;letter-spacing:0;font-weight:900;text-align:left;cursor:default;transition:letter-spacing .4s ease}
+.hero h1:hover{letter-spacing:.06em}
+.hero h1 b{display:block;font-weight:900;font-style:normal}
+.hero h1 span{display:block;font-family:'Montserrat',sans-serif;font-weight:400;font-size:calc(1em - 49px);white-space:nowrap}
+.hero h1 em{display:block;font-style:normal;font-size:calc(1em - 40px);color:#fff;font-weight:900;letter-spacing:-.04em;margin:20px 0 0 0}
+.hero-sub{max-width:620px;color:#fff;line-height:1.4;font-size:19px;margin:120px 0 26px 165px;text-align:left;font-family:'Montserrat',sans-serif;font-weight:500}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-left:165px}
+/* Hover-fill effect from Uiverse.io by abrahamcalsin — only the sweep, original size/type kept */
+.hero-buttons .hero-cta{position:relative;overflow:hidden;transition:color .3s ease,border-color .3s ease}
+.hero-buttons .hero-cta > span{position:relative;z-index:2;display:inline-flex;align-items:center;gap:10px;transition:color .3s ease}
+.hero-buttons .hero-cta::after{content:'';position:absolute;top:0;right:0;width:0;height:100%;z-index:1;transition:width .4s ease-in-out}
+.hero-buttons .hero-cta:hover::after{right:auto;left:0;width:100%}
+.hero-buttons .hero-cta:hover{transform:none;box-shadow:0 6px 24px rgba(0,0,0,.2)}
+.hero-buttons .hero-cta:hover > span{animation:ctaScaleUp .3s ease-in-out}
+.hero-buttons .primary-btn::after{background:#080808}
+.hero-buttons .primary-btn:hover{color:#fff}
+.hero-buttons .ghost-btn::after{background:#fff}
+.hero-buttons .ghost-btn:hover{color:#080808;border-color:#fff}
+@keyframes ctaScaleUp{0%{transform:scale(1)}50%{transform:scale(.95)}100%{transform:scale(1)}}
+.primary-btn,.ghost-btn{border:1px solid #444;background:transparent;color:#fff;padding:0 23px;min-height:52px;display:inline-flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:.13em;font-size:10px;transition:transform .28s ease,box-shadow .28s ease,background .28s ease,border-color .28s ease}
+.primary-btn{background:#fff;color:#080808;border-color:#fff}
+.primary-btn:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 16px 35px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.45)}
+.ghost-btn:hover{transform:translateY(-5px);background:rgba(255,255,255,.95);color:#080808;border-color:#fff;box-shadow:0 16px 35px rgba(0,0,0,.3)}
+/* Hero explore button — transparent */
+.hero-buttons .primary-btn{background:transparent;color:#fff;border-color:#fff}
+.hero-buttons .primary-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* ===== GOV PANEL ===== */
+.hero-gov-panel{position:absolute;top:calc(88px + 19px);right:2vw;isolation:isolate;z-index:10;width:220px;background:rgba(4,9,5,.88);backdrop-filter:blur(20px);border-left:2px solid var(--green)}
+.hero-gov-header{background:rgba(20,40,15,.88);color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;text-align:center;border-radius:10px;margin-bottom:6px}
+.hero-gov-list{display:flex;flex-direction:column;gap:6px;padding:4px 6px 6px}
+.hero-gov-item{border-radius:10px}
+.hero-gov-photo-reveal{position:absolute;right:calc(100% + 14px);top:50%;width:210px;border-radius:12px;overflow:hidden;background:#0d160a;box-shadow:0 22px 45px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.12);opacity:0;pointer-events:none;transform:translateY(-50%) translateX(25px) scale(.96);transition:opacity .3s ease,transform .45s cubic-bezier(.22,1,.36,1)}
+.hero-gov-photo-reveal img{width:100%;display:block;object-fit:cover;aspect-ratio:1/1}
+.hero-gov-caption{padding:10px 12px 12px;text-align:center;font-family:'Montserrat',sans-serif;border-top:1px solid rgba(255,255,255,.1)}
+.hero-gov-caption strong{display:block;color:#fff;font-size:12.5px;font-weight:700;line-height:1.3}
+.hero-gov-caption span{display:block;white-space:pre-line;margin-top:5px;color:var(--green,#7ac943);font-size:9px;font-weight:800;letter-spacing:.1em;line-height:1.45;text-transform:uppercase}
+.hero-gov-item.expanded .hero-gov-photo-reveal{opacity:1;transform:translateY(-50%) translateX(0) scale(1)}
+.hero-gov-btn{width:100%;background:#fff;border:none;border-radius:10px;color:#24391A;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;padding:13px 16px;text-align:center;cursor:pointer;display:block;box-shadow:none;transition:background .2s ease,color .2s ease}
+.hero-gov-item.expanded .hero-gov-btn{background:#24391A;color:#fff}
+.hero-gov-btn:hover{background:#f5fff5;color:#1a5c1a}
+
+/* ===== SECTIONS ===== */
+.section{padding:125px 7vw;scroll-margin-top:88px}
+.section-heading{max-width:900px;margin-bottom:65px}
+.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#92928d;margin:0 0 24px}
+.section-heading h2{font-size:clamp(45px,7vw,96px);line-height:.78;letter-spacing:-.065em;margin:0}
+.section-heading h2 i{font-style:normal;color:#999}
+/* From Uiverse.io by Nawsome — recoloured black & white */
+.uiv-btn{width:230px;height:56px;background:#fff;color:#080808;position:relative;overflow:hidden;font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:.16em;font-weight:700;text-transform:uppercase;transition:all .3s ease;cursor:pointer;border:0;display:flex;align-items:center;justify-content:center;border-radius:3px}
+.uiv-btn::before,.uiv-btn::after{content:"";position:absolute;width:0;height:2px;background:#080808;transition:all .3s cubic-bezier(.35,.1,.25,1)}
+.uiv-btn::before{right:0;top:0;transition:all .5s cubic-bezier(.35,.1,.25,1)}
+.uiv-btn::after{left:0;bottom:0}
+.uiv-btn > span{width:100%;height:100%;position:absolute;left:0;top:0;margin:0;padding:0;z-index:1}
+.uiv-btn > span::before,.uiv-btn > span::after{content:"";position:absolute;width:2px;height:0;background:#080808;transition:all .3s cubic-bezier(.35,.1,.25,1)}
+.uiv-btn > span::before{right:0;top:0;transition:all .5s cubic-bezier(.35,.1,.25,1)}
+.uiv-btn > span::after{left:0;bottom:0}
+.uiv-btn > p{padding:0;margin:0;transition:all .4s cubic-bezier(.35,.1,.25,1);position:absolute;width:100%;height:100%}
+.uiv-btn > p::before,.uiv-btn > p::after{position:absolute;width:100%;transition:all .4s cubic-bezier(.35,.1,.25,1);z-index:1;left:0}
+.uiv-btn > p::before{content:attr(data-title);top:50%;transform:translateY(-50%)}
+.uiv-btn > p::after{content:attr(data-text);top:150%;color:#080808}
+.uiv-btn:hover::before,.uiv-btn:hover::after{width:100%}
+.uiv-btn:hover > span::before,.uiv-btn:hover > span::after{height:100%}
+.uiv-btn:hover > p::before{top:-50%;transform:rotate(5deg)}
+.uiv-btn:hover > p::after{top:50%;transform:translateY(-50%)}
+.uiv-btn:focus{outline:0}
+#ctaTitle{font-weight:900;letter-spacing:0;cursor:default;transition:letter-spacing .4s ease}
+#ctaTitle:hover{letter-spacing:.06em}
+#contactTitle{font-weight:900;letter-spacing:0;cursor:default;transition:letter-spacing .4s ease}
+#contactTitle:hover{letter-spacing:.06em}
+#galleryTitle{font-weight:900;letter-spacing:0;cursor:default;transition:letter-spacing .4s ease}
+#galleryTitle:hover{letter-spacing:.06em}
+#eventsTitle{font-weight:900;letter-spacing:0;cursor:default;transition:letter-spacing .4s ease}
+#eventsTitle:hover{letter-spacing:.06em}
+#sportsTitle{font-weight:900;letter-spacing:0;cursor:default;white-space:nowrap;font-size:clamp(30px,6.4vw,90px);transition:letter-spacing .4s ease}
+#sportsTitle:hover{letter-spacing:.06em}
+#aboutTitle{font-weight:900;letter-spacing:0;cursor:default;transition:letter-spacing .4s ease}
+#aboutTitle:hover{letter-spacing:.06em}
+#aboutTitle b{font-weight:900}
+#aboutTitle i{font-weight:400}
+.section-heading.wide{max-width:1500px;margin-bottom:45px}
+.section-heading.below{margin:22px 0 30px}
+.section-heading.below h2{font-size:clamp(26px,3.6vw,54px);line-height:1.05;font-weight:900;letter-spacing:0;cursor:default;transition:letter-spacing .4s ease}
+.section-heading.below h2:hover{letter-spacing:.06em}
+.section-heading.below h2 i{font-weight:400}
+#galleryTitle i,#contactTitle i{font-weight:400}
+.section-heading.wide h2 i{display:inline}
+.light h2{color:#fff}
+.dark-section{background:var(--black);color:#fff}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:7vw;align-items:start;margin-top:-45px}
+.about-statement{margin-top:-50px;font-size:clamp(28px,4vw,56px);line-height:1.05;letter-spacing:-.045em;max-width:800px;position:relative}
+.big-mark{position:absolute;left:-38px;top:60px;font-size:80px;color:#bbb}
+.about-tabs{border-top:1px solid var(--line);margin-top:-165px}
+.about-tab{position:relative;overflow:hidden;width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;padding:20px 14px;display:grid;grid-template-columns:45px 1fr 22px;gap:15px;align-items:center;text-align:left;color:#777;cursor:pointer;transition:color .3s ease,background .3s ease}
+.about-tab::after{content:'';position:absolute;top:0;right:0;width:0;height:100%;background:#111;z-index:0;transition:width .4s ease-in-out}
+.about-tab:hover::after{right:auto;left:0;width:100%}
+.about-tab > *{position:relative;z-index:1}
+.about-tab > span{font-size:11px}
+.about-tab strong{display:block;color:#111;font-size:clamp(17px,2vw,26px);letter-spacing:-.03em;transition:color .3s ease}
+.about-tab small{display:block;font-size:11px;line-height:1.5;margin-top:5px;color:#777;transition:color .3s ease}
+.about-tab .chevron{transition:.3s;font-size:18px}
+.about-tab.active{background:#e8e8e2;color:#111}
+.about-tab:hover{color:#999}
+.about-tab:hover strong{color:#fff}
+.about-tab:hover small{color:#bbb}
+.about-tab.active .chevron{transform:translateX(5px)}
+.about-detail{border:1px solid #d1d1cb;background:#fff;padding:25px;margin-top:15px;display:none}
+.about-detail.active{display:block}
+.about-detail span{font-size:10px;color:#999;letter-spacing:.2em}
+.about-detail p{font-size:14px;line-height:1.8;color:#555;margin:12px 0 0}
+.about-detail p + p{margin-top:16px}
+
+/* ===== SPORTS ===== */
+.sports-tight{padding-top:45px}
+#about{padding-top:45px}
+#committee{padding-top:45px}
+#events{padding-top:45px}
+#gallery{padding-top:45px}
+#contact{padding-top:45px}
+.sports-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sport-card{min-height:420px;border:1px solid #292929;padding:25px;position:relative;background:linear-gradient(145deg,#111,#080808);transition:.35s;overflow:hidden}
+.sport-card:hover{border-color:#666;background:#141414;transform:translateY(-8px)}
+.sport-photo{height:150px;margin:-15px -15px 22px;overflow:hidden;opacity:.8}
+.sport-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.9);transition:.5s}
+.sport-card:hover .sport-photo img{transform:scale(1.08);filter:saturate(1.25)}
+.card-number{color:#555;font-size:10px;letter-spacing:.15em}
+.sport-icon{margin-top:18px;color:#ddd;font-size:28px}
+.sport-card h3{font-size:25px;letter-spacing:-.04em;margin:16px 0 10px}
+.sport-card p{color:#777;line-height:1.6;font-size:12px;max-width:220px}
+.card-arrow{position:absolute;right:22px;bottom:22px;color:#666;font-size:20px}
+
+/* ===== COMMITTEE ===== */
+.committee{background:#efefeb}
+.committee-topline{display:flex;justify-content:flex-end;color:#777;font-size:10px;text-transform:uppercase;letter-spacing:.13em;margin-bottom:15px}
+.leaders{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
+.person-card{background:#d8d8d2;min-height:420px;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+
+.person-photo{position:absolute;inset:10px 10px 100px;background:#b8b8b2;overflow:hidden}
+.person-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;filter:saturate(.9) contrast(1.03);transition:.5s}
+.person-card:hover .person-photo img{transform:scale(1.04);filter:saturate(1.28) contrast(1.03)}
+.person-photo-initials{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:40px;font-weight:700;color:#888}
+.person-meta{position:relative;background:rgba(247,247,244,.96);padding:14px}
+.person-meta span{font-size:9px;color:#777;letter-spacing:.15em;text-transform:uppercase}
+.person-meta h3{margin:5px 0 0;font-size:18px;letter-spacing:-.03em}
+.committee-actions{display:flex;gap:14px;flex-wrap:wrap}
+.members-wrap{max-height:0;overflow:hidden;opacity:0;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .35s ease,margin-top .4s ease;scroll-margin-top:105px}
+.members-wrap.open{max-height:5000px;opacity:1;margin-top:18px}
+.members-panel{border:1px solid #d6d6d0;background:#f4f4f0;padding:28px}
+.members-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.members-head b{display:block;font-size:19px}
+.members-head small{display:block;margin-top:6px;color:#555;font-size:13px}
+.members-search{min-width:250px;border:0;border-bottom:1px solid #ccc;background:transparent;font-family:inherit;font-size:15px;padding:9px 0;outline:0;color:#111}
+.members-search:focus{border-bottom-color:#111}
+.members-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.member-card{display:flex;gap:14px;align-items:center;border:1px solid #e0e0da;background:#fff;padding:12px}
+.member-photo{width:54px;height:62px;flex:none;overflow:hidden;background:#ecece6;display:grid;place-items:center}
+.member-photo img{width:100%;height:100%;object-fit:cover}
+.member-photo span{font-size:16px;font-weight:800;color:#999}
+.member-info b{display:block;font-size:15px;line-height:1.35}
+.member-info small{display:block;margin-top:5px;font-size:11px;letter-spacing:.08em;color:#777}
+.members-count{margin:20px 0 0;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#888}
+.members-empty{margin:0;color:#666;font-size:15px}
+.committee-rest{scroll-margin-top:105px;max-height:0;overflow:hidden;opacity:0;margin-top:0;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .35s ease,margin-top .4s ease}
+.committee-rest.open{max-height:4000px;opacity:1;margin-top:12px}
+.committee-cta b{font-style:normal;font-weight:700}
+.committee-head-row{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.committee-head-row .section-heading.below{margin:22px 0 30px;max-width:none;flex:0 1 auto;min-width:0}
+.committee-actions{flex:none}
+.committee-cta{position:relative;overflow:hidden;border:1px solid #111;background:transparent;color:#111;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:0 23px;min-height:52px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;transition:color .3s ease}
+.committee-cta::after{content:'';position:absolute;top:0;right:0;width:0;height:100%;background:#111;z-index:1;transition:width .4s ease-in-out}
+.committee-cta:hover::after{right:auto;left:0;width:100%}
+.committee-cta:hover{color:#fff}
+.committee-cta > span,.committee-cta > b{position:relative;z-index:2}
+.form-cta{align-self:flex-start}
+.contact-mini a{display:block;color:inherit;text-decoration:none;transition:color .25s ease}
+.contact-mini a:hover{color:#000;text-decoration:underline}
+
+/* ===== EVENTS ===== */
+.section-intro{max-width:820px;color:#555;font-size:16px;line-height:1.8;margin:-25px 0 40px}
+.dark-intro{color:#a2a2a2}
+.event-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:40px}
+.event-guide > div.clickable{cursor:pointer}
+.reg-wrap{max-height:0;overflow:hidden;opacity:0;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .35s ease,margin-top .4s ease;scroll-margin-top:105px}
+.reg-wrap.open{max-height:2600px;opacity:1;margin-top:18px}
+.reg-form{border:1px solid #d6d6d0;background:#f4f4f0;color:#111;padding:28px}
+.reg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.reg-head b{display:block;font-size:19px;color:#111}
+.reg-head small{display:block;margin-top:6px;color:#555;font-size:13px}
+.reg-close{background:none;border:1px solid #ccc;color:#666;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:9px 12px;cursor:pointer;transition:.25s}
+.reg-close:hover{color:#111;border-color:#111}
+.reg-photo-row{display:flex;gap:18px;align-items:center;margin-bottom:22px}
+.reg-photo-box{width:86px;height:100px;flex:none;border:1px dashed #bbb;display:grid;place-items:center;overflow:hidden;background:#fff}
+.reg-photo-box span{color:#bbb;font-size:26px}
+.reg-photo-box img{width:100%;height:100%;object-fit:cover}
+.reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.reg-field{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#333;font-weight:600}
+.reg-field.wide{grid-column:1 / -1}
+.reg-field input,.reg-field textarea{width:100%;margin-top:8px;background:transparent;border:0;border-bottom:1px solid #ccc;color:#111;font-family:inherit;font-size:16px;letter-spacing:0;text-transform:none;padding:10px 0;transition:border-color .25s}
+.reg-field input:focus,.reg-field textarea:focus{outline:0;border-bottom-color:#111}
+.reg-field input[type=file]{font-size:11px;color:#666;border:0}
+.reg-field small{display:block;margin-top:6px;color:#777;font-size:11px;letter-spacing:0;text-transform:none;font-weight:400}
+.reg-declare{display:flex;gap:12px;align-items:flex-start;margin:26px 0 22px;color:#222;font-size:14px;line-height:1.65}
+.reg-declare input{margin-top:3px;width:16px;height:16px;flex:none;accent-color:#111}
+.reg-preview{display:none;border:1px solid #d6d6d0;background:#f4f4f0;color:#111;padding:28px;scroll-margin-top:105px}
+.reg-preview.open{display:block}
+.reg-prev-head b{display:block;font-size:19px}
+.reg-prev-head small{display:block;margin-top:6px;color:#555;font-size:13px}
+.reg-prev-body{display:flex;gap:24px;align-items:flex-start;margin-top:24px;flex-wrap:wrap}
+.reg-prev-photo{width:86px;height:100px;object-fit:cover;border:1px solid #ccc;flex:none}
+.reg-prev-list{flex:1;min-width:260px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 24px}
+.reg-prev-list > div{border-bottom:1px solid #e0e0da;padding-bottom:10px}
+.reg-prev-list dt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#777}
+.reg-prev-list dd{margin:5px 0 0;font-size:16px;color:#111;word-break:break-word}
+.reg-prev-declare{margin:22px 0 0;color:#333;font-size:13px;line-height:1.65}
+.reg-prev-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:24px}
+.reg-success{display:none;margin:18px 0 0;color:var(--green2,#3d8f32);font-size:14px;line-height:1.6}
+.event-guide > div{position:relative;overflow:hidden;border:1px solid #292929;padding:22px;background:#0d0d0d;cursor:default;transition:color .3s ease}
+.event-guide > div::after{content:'';position:absolute;top:0;right:0;width:0;height:100%;background:#fff;z-index:1;transition:width .4s ease-in-out}
+.event-guide > div:hover::after{right:auto;left:0;width:100%}
+.event-guide > div > *{position:relative;z-index:2}
+.event-guide > div:hover span{color:#555}
+.event-guide > div:hover b{color:#080808}
+.event-guide > div:hover p{color:#333}
+.event-guide span{font-size:12px;font-weight:700;letter-spacing:.1em;color:#8a8a8a;transition:color .3s ease}
+.event-guide b{display:block;font-size:20px;font-weight:800;margin:15px 0 9px;transition:color .3s ease}
+.event-guide p{margin:0;color:#a2a2a2;font-size:13px;font-weight:500;line-height:1.6;transition:color .3s ease}
+
+/* ===== GALLERY ===== */
+.gallery-section{background:#f4f4f1}
+.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr 1fr;grid-auto-rows:220px;gap:12px}
+.gallery-item{margin:0;position:relative;overflow:hidden;background:#ddd}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.8);transition:.6s}
+.gallery-item:hover img{transform:scale(1.07);filter:saturate(1.3)}
+.gallery-item::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.82));pointer-events:none}
+.gallery-item figcaption{position:absolute;z-index:2;left:18px;right:18px;bottom:15px;color:#fff;display:flex;flex-direction:column;gap:5px}
+.gallery-item figcaption span{font-size:8px;letter-spacing:.18em;color:#b8ff8b}
+.gallery-item figcaption b{font-size:15px}
+.gallery-1{grid-row:span 2}
+.gallery-4{grid-column:span 2}
+.gallery-7{grid-column:span 2}
+.gallery-13{grid-column:1 / -1}
+
+/* ===== FINAL CTA ===== */
+.final-cta{min-height:75vh;background:linear-gradient(rgba(4,8,4,.74),rgba(4,8,4,.88)),url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Bangabandhu%20National%20Stadium%20crowd%2C%20Home%20match%20day%20FIFA%20WC%20qualifier%202019.jpg') center/cover no-repeat;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 7vw;position:relative;overflow:hidden}
+.cta-rings{position:absolute;width:650px;height:650px;border:1px solid rgba(255,255,255,.16);border-radius:50%;box-shadow:0 0 0 90px rgba(255,255,255,.025),0 0 0 180px rgba(255,255,255,.015)}
+.final-cta h2{position:relative;font-size:clamp(52px,9vw,125px);line-height:.82;letter-spacing:-.07em;margin:0}
+.final-cta h2 i{font-style:normal;color:#a9b1a7}
+.final-cta > p:not(.eyebrow){position:relative;max-width:430px;color:#c0c6c0;line-height:1.7;margin:28px 0;font-size:13px}
+.cta-buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+
+/* ===== CONTACT ===== */
+.contact-section{background:#e7e7e1}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:8vw;align-items:start}
+.contact-grid h2{font-size:clamp(45px,6vw,88px);line-height:.88;letter-spacing:-.06em;margin:0}
+.contact-grid h2 i{font-style:normal;color:#8a8a84}
+.contact-copy{max-width:460px;color:#333;line-height:1.75;font-size:15px;margin-top:25px}
+.contact-mini{display:flex;flex-direction:column;gap:14px;margin-top:35px;color:#111;font-size:15px;font-weight:600}
+.contact-mini span{display:flex;gap:9px;align-items:center}
+.contact-form{background:#f7f7f3;border:1px solid #d1d1ca;padding:28px}
+.contact-form label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#333;font-weight:600;margin-bottom:19px}
+.contact-form input,.contact-form textarea{display:block;width:100%;border:0;border-bottom:1px solid #bbb;background:transparent;font-family:inherit;font-size:16px;letter-spacing:0;text-transform:none;font-weight:400;padding:12px 0 10px;outline:0;color:#111;resize:vertical}
+.contact-form input:focus,.contact-form textarea:focus{border-color:#111}
+.form-two{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.contact-form .primary-btn{margin-top:4px;background:#111;color:#fff;border-color:#111}
+.form-success{font-size:11px;color:#47723a;line-height:1.6;margin:16px 0 0}
+
+/* ===== FOOTER ===== */
+.footer{background:#080808;color:#777;border-top:1px solid #222;padding:28px 7vw;display:grid;grid-template-columns:1.1fr 1.4fr auto auto;align-items:center;gap:25px;font-size:9px}
+.footer strong,.footer .footer-sub{display:block;letter-spacing:.12em}
+.footer strong{color:#ddd}
+.footer .footer-sub{margin-top:4px}
+.footer p{margin:0}
+.socials{display:flex;gap:8px;flex-wrap:wrap}
+.socials a{display:flex;align-items:center;gap:6px;color:#fff;text-decoration:none;padding:9px 10px;font-size:8px;letter-spacing:.08em;text-transform:uppercase}
+.facebook{background:#1877f2}
+.youtube{background:#ff0033}
+.tiktok{background:#111;border:1px solid #444}
+.instagram{background:linear-gradient(135deg,#7b2cff,#ff2f7d,#ffb02e)}
+.developer{color:#777;text-decoration:none;display:flex;gap:6px;align-items:center;white-space:nowrap}
+.developer b{color:#ddd}
+
+/* ===== MODAL ===== */
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){.about-tabs{margin-top:-120px}.sports-grid{grid-template-columns:1fr 1fr}.footer{grid-template-columns:1fr 1fr}.developer{justify-self:end}.hero-main-row{grid-template-columns:170px minmax(0,1fr);gap:28px}.nav-links{gap:16px}}
+@media(max-width:900px){.nav-links{position:absolute;top:88px;left:0;right:0;background:#080808;padding:25px 7vw;display:none;flex-direction:column;border-bottom:1px solid #222}.nav-links.open{display:flex}.nav-links button{text-align:left;padding:10px 0}.menu-btn{display:block}.about-grid,.contact-grid{grid-template-columns:1fr}.about-tabs{margin-top:0}.leaders{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr}.gallery-4,.gallery-7{grid-column:span 2}.contact-grid{gap:50px}.hero-gov-panel{display:none}.hero-main-row{grid-template-columns:140px minmax(0,1fr);gap:22px}}
+@media(max-width:650px){.nav{height:74px;padding:0 5vw}.brand img{width:45px;height:45px}.brand strong{font-size:12px}.brand span{font-size:8px}.hero{padding:105px 5vw 70px}.hero-main-row{grid-template-columns:1fr;gap:18px}.hero-logo-wrap{align-items:flex-start;flex-direction:row;gap:14px}.hero-logo-large{width:82px;margin-left:0;margin-top:0}.hero-title-block{transform:none}.hero h1{font-size:clamp(46px,14vw,72px);margin-left:0}.hero-kicker{margin-left:0}.hero-sub{font-size:13px;margin-top:40px;margin-left:0}.hero-buttons{margin-left:0}.sports-grid,.leaders,.event-guide{grid-template-columns:1fr}#sportsTitle{white-space:normal;font-size:clamp(38px,11vw,62px)}.section-heading.below h2{white-space:normal;font-size:clamp(34px,9vw,54px);line-height:.9}.about-tab{grid-template-columns:35px 1fr 18px}.form-two,.reg-grid,.reg-prev-list{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gallery-1{grid-row:span 2}.gallery-4,.gallery-7{grid-column:span 2}.footer{grid-template-columns:1fr}.developer{justify-self:start}.socials a span{display:none}.socials a{width:38px;height:38px;justify-content:center}.contact-form{padding:20px}}
+</style>
+</head>
+<body>
+<div class="site">
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <button class="brand" onclick="navScrollTo('home')">
+    <div><strong id="brandName">MOHAMMEDAN</strong><span id="brandSub">SPORTING CLUB • FARIDPUR</span></div>
+    <img src="images/mohammedan-faridpur-logo-transparent.png" alt="Mohammedan Sporting Club Faridpur" onerror="this.style.display='none'" />
+  </button>
+  <nav class="nav-links" id="navLinks">
+    <button onclick="navScrollTo('about')" id="navAbout">About</button>
+    <button onclick="navScrollTo('sports')" id="navSports">Sports</button>
+    <button onclick="navScrollTo('committee')" id="navCommittee">Committee</button>
+    <button onclick="navToMembers()" id="navMembers">Members</button>
+    <button onclick="navScrollTo('events')" id="navEvents">Events</button>
+    <button onclick="navScrollTo('gallery')" id="navGallery">Gallery</button>
+    <button onclick="navScrollTo('contact')" id="navContact">Contact</button>
+  </nav>
+  <div class="nav-actions">
+    <button class="language" onclick="toggleLang()" id="langBtn" title="Switch language"><svg class="lang-ico" viewBox="0 0 26 26" aria-hidden="true"><rect class="tile" x="5" y="0.5" width="12.5" height="12.5" rx="3.6"/><text class="glyph" x="11.25" y="9.4" text-anchor="middle">文</text><rect class="tile front" x="12.5" y="8" width="12.5" height="12.5" rx="3.6"/><text class="glyph" x="18.75" y="16.9" text-anchor="middle">A</text><path class="swap" d="M9.2 22.6C5.9 22.1 3.4 19.6 2.9 16.3"/><path class="swaphead" d="M2.9 14.6 4.6 17.4 1.2 17.4Z"/><path class="swap" d="M2.6 18.6C3.4 21.6 5.8 23.9 8.9 24.5"/><path class="swaphead" d="M10.6 24.7 7.9 26.2 7.9 22.9Z"/></svg><span id="langLabel">বা</span></button>
+    <button class="menu-btn" onclick="toggleMenu()" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-grid-lines"></div>
+
+  <!-- Governing Body Panel -->
+  <div class="hero-gov-panel" id="govPanel">
+    <div class="hero-gov-header" id="govHeader">2026 ELECTED COMMITTEE</div>
+    <div class="hero-gov-list" id="govList">
+      <div class="hero-gov-item" id="gov-adviser1" onmouseenter="expandGov('adviser1')" onmouseleave="collapseGov('adviser1')">
+        <div class="hero-gov-photo-reveal"><img src="images/adviser-01.png" alt="Adviser Mr. Shahidul Islam Babul" onerror="this.style.display='none'" /><div class="hero-gov-caption"><strong id="govNameAdviser1">Mr. Shahidul Islam Babul</strong><span id="govCapAdviser1">Member of Parliament, Faridpur-04</span></div></div>
+        <button class="hero-gov-btn" onclick="navScrollTo('committee')">Adviser</button>
+      </div>
+      <div class="hero-gov-item" id="gov-adviser2" onmouseenter="expandGov('adviser2')" onmouseleave="collapseGov('adviser2')">
+        <div class="hero-gov-photo-reveal"><img src="images/adviser-02.png" alt="Adviser Ms Nayar Yousuf" onerror="this.style.display='none'" /><div class="hero-gov-caption"><strong id="govNameAdviser2">Ms Nayar Yousuf</strong><span id="govCapAdviser2">Member of Parliament, Faridpur-03</span></div></div>
+        <button class="hero-gov-btn" onclick="navScrollTo('committee')">Adviser</button>
+      </div>
+      <div class="hero-gov-item" id="gov-president" onmouseenter="expandGov('president')" onmouseleave="collapseGov('president')">
+        <div class="hero-gov-photo-reveal"><img src="images/president.png" alt="President Mr. Hanif Mondal" onerror="this.style.display='none'" /><div class="hero-gov-caption"><strong id="govNamePresident">Mr. Hanif Mondal</strong><span id="govCapPresident">Managing Director,
+R.PH. Group</span></div></div>
+        <button class="hero-gov-btn" onclick="navScrollTo('committee')">President</button>
+      </div>
+      <div class="hero-gov-item" id="gov-gen-sec" onmouseenter="expandGov('gen-sec')" onmouseleave="collapseGov('gen-sec')">
+        <div class="hero-gov-photo-reveal"><img src="images/secretary.png" alt="Gen. Secretary Mr. Rizwan Biswas Tarun" onerror="this.style.display='none'" /><div class="hero-gov-caption"><strong id="govNameGenSec">Mr. Rizwan Biswas Tarun</strong><span id="govCapGenSec">Gen. Secretary</span></div></div>
+        <button class="hero-gov-btn" onclick="navScrollTo('committee')">Gen. Secretary</button>
+      </div>
+      <div class="hero-gov-item" id="gov-member">
+        <button class="hero-gov-btn" onclick="navScrollTo('committee')">Committee Member</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-copy">
+    <div class="hero-main-row">
+      <div class="hero-logo-wrap">
+        <img class="hero-logo-large" src="images/mohammedan-faridpur-logo-transparent.png" alt="Mohammedan Sporting Club Faridpur logo" onerror="this.style.display='none'" />
+      </div>
+      <div class="hero-title-block">
+        <div class="hero-kicker"><span id="heroKicker">FARIDPUR DIVISION • BANGLADESH</span></div>
+        <h1><b id="heroName">MOHAMMEDAN</b><span id="heroClub">SPORTING CLUB</span><em id="heroCity">FARIDPUR</em></h1>
+        <p class="hero-sub" id="heroSub">A youth-driven sports community in Faridpur — symbol of discipline, leadership and service.</p>
+        <div class="hero-buttons">
+          <button class="primary-btn hero-cta" onclick="navScrollTo('about')"><span><b id="heroExplore">Explore Club</b> ↘</span></button>
+          <button class="ghost-btn hero-cta" onclick="navScrollTo('committee')"><span><b id="heroCommittee">Meet Committee</b> ↗</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section about">
+  <div class="section-heading">
+    <h2 id="aboutTitle"><b>MORE</b> <i>THAN</i><br><i>A</i> <b>CLUB.</b></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-statement">
+      <span class="big-mark">"</span>
+      <p id="aboutBody">Mohammedan Sporting Club — Faridpur is a local youth-centered sports community where participation, discipline and service meet. The club creates space for young people to play, build friendships, learn leadership and contribute to society.</p>
+    </div>
+    <div class="about-tabs" id="aboutTabs">
+      <!-- tabs injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPORTS ===== -->
+<section id="sports" class="section dark-section sports-tight">
+  <div class="section-heading light wide">
+    <h2 id="sportsTitle">PLAY. <i>PARTICIPATE.</i></h2>
+  </div>
+  <div class="sports-grid" id="sportsGrid"></div>
+</section>
+
+<!-- ===== COMMITTEE ===== -->
+<section id="committee" class="section committee">
+  <div class="leaders" id="leaders"></div>
+  <div class="committee-head-row">
+    <div class="section-heading wide below">
+      <h2 id="committeeTitle"><i>THE</i> PEOPLE <i>BEHIND THE</i> CLUB.</h2>
+    </div>
+    <div class="committee-actions">
+      <button class="committee-cta" onclick="toggleFullCommittee()"><span id="viewAllLabel">View full committee</span> <b id="viewAllArrow">↓</b></button>
+      <button class="committee-cta" onclick="toggleMembers()"><span id="membersLabel">Club members</span> <b id="membersArrow">↓</b></button>
+    </div>
+  </div>
+  <div class="leaders committee-rest" id="committeeRest"></div>
+  <div class="members-wrap" id="membersWrap"></div>
+</section>
+
+<!-- ===== EVENTS ===== -->
+<section id="events" class="section events dark-section">
+  <div class="section-heading light">
+    <h2 id="eventsTitle">WHAT'S<br><i>HAPPENING.</i></h2>
+  </div>
+  <p class="section-intro dark-intro" id="eventsIntro">Fixtures, registration and results in one place. Open the registration card to sign up as a participant — upcoming matches and past results are posted here through the season.</p>
+  <div class="event-guide" id="eventGuide"></div>
+  <div class="reg-wrap" id="regWrap"></div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="section gallery-section">
+  <div class="section-heading">
+    <h2 id="galleryTitle">MOMENTS <i>IN</i><br><i>MOTION.</i></h2>
+  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="final-cta">
+  <div class="cta-rings"></div>
+  <p class="eyebrow">MOHAMMEDAN SPORTING CLUB — FARIDPUR</p>
+  <h2 id="ctaTitle">BE PART OF<br><i>THE MOVEMENT.</i></h2>
+  <p id="ctaBody">Play with purpose. Grow together. Serve the community.</p>
+  <div class="cta-buttons">
+    <button class="uiv-btn" onclick="navScrollTo('contact')"><span></span><p id="ctaContact" data-title="Contact Club" data-text="Send a message ✉"></p></button>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section contact-section">
+  <div class="contact-grid">
+    <div>
+      <h2 id="contactTitle">TALK <i>TO</i><br><i>THE</i> CLUB.</h2>
+      <p class="contact-copy" id="contactBody">For membership, events, sports activities, sponsorships or community initiatives, send us a message.</p>
+      <div class="contact-mini">
+        <a href="mailto:info@mohammedan-sc-faridpur.com">✉ info@mohammedan-sc-faridpur.com</a>
+        <a href="tel:+8801711000000">☎ 01711-00 00 00</a>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <label id="contactNameLabel">Your name<input required name="name" /></label>
+      <div class="form-two">
+        <label id="contactEmailLabel">Email address<input required type="email" name="email" /></label>
+        <label id="contactPhoneLabel">Phone number<input name="phone" /></label>
+      </div>
+      <label id="contactMsgLabel">Your message<textarea required rows="6" name="message"></textarea></label>
+      <button class="committee-cta form-cta" type="submit"><span id="contactSend">Send message</span> <b>➤</b></button>
+      <p class="form-success" id="formSuccess" style="display:none">Thank you. Your message is ready to be connected to the club's email or backend when we add it.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div><strong>MOHAMMEDAN SPORTING CLUB</strong><span class="footer-sub">FARIDPUR DIVISION</span></div>
+  <p>© 2026 Mohammedan Sporting Club — Faridpur. <span id="footerRights">All rights reserved.</span></p>
+  <div class="socials">
+    <a class="facebook" href="#" title="Facebook — add official link later">f <span>Facebook</span></a>
+    <a class="youtube" href="#" title="YouTube — add official link later">▶ <span>YouTube</span></a>
+    <a class="tiktok" href="#" title="TikTok — add official link later">♪ <span>TikTok</span></a>
+    <a class="instagram" href="#" title="Instagram — add official link later">◉ <span>Instagram</span></a>
+  </div>
+  <a class="developer" href="https://www.gravalley.com" target="_blank" rel="noreferrer"><span id="footerDev">Developed by</span> <b>gravalley.com</b> ↗</a>
+</footer>
+
+<script>
+// ===== DATA =====
+const content = {
+  en: {
+    nav: { about:"About", sports:"Sports", committee:"Committee", members:"Members", events:"Events", gallery:"Gallery", contact:"Contact" },
+    brand: { name:"MOHAMMEDAN", sub:"SPORTING CLUB • FARIDPUR", club:"SPORTING CLUB", city:"FARIDPUR", kicker:"FARIDPUR DIVISION • BANGLADESH", govHeader:"2026 ELECTED COMMITTEE" },
+    hero: { sub:"A youth-driven sports community in Faridpur — symbol of discipline, leadership and service.", explore:"Explore Club", committee:"Meet Committee" },
+    about: {
+      title:"MORE THAN", titleAccent:"A CLUB.", titleHtml:"<b>MORE</b> <i>THAN</i><br><i>A</i> <b>CLUB.</b>",
+      body:"Mohammedan Sporting Club — Faridpur is a local youth-centered sports community where participation, discipline and service meet. The club creates space for young people to play, build friendships, learn leadership and contribute to society.",
+      items:[
+        { no:"01", title:"Youth participation", short:"A place for local young people to take part, belong and grow.", detail:"Everything this club does begins with young people. Mohammedan Sporting Club — Faridpur exists so that any young person in the district can find a place where they belong, whether they arrive as a trained player or as a beginner who has never been part of an organised team before.\n\nMembers take part in regular training, practice matches and club activities through the year. Senior members and coaches guide them in technique, but just as much in discipline, punctuality, fair play and respect for teammates and opponents. A player who learns to turn up on time and support a struggling teammate has learned something that outlasts any single season.\n\nParticipation is kept deliberately open. Schoolboys and schoolgirls, college students and working youth all find room here, and no one is turned away for lack of equipment or experience. What matters is the willingness to show up, train honestly and represent the club with pride.\n\nOver time this becomes more than sport. Young people build friendships that carry beyond the field, learn to work inside a team, take on small responsibilities, and grow into the seniors who will one day guide the next group through the same gates." },
+        { no:"02", title:"Sports & activities", short:"Football, cricket, youth activities and community events.", detail:"Sport is the heartbeat of the club. Football and cricket carry the largest share of our calendar, supported by badminton, kabaddi and other activities that keep members active through every season of the year.\n\nFootball runs from age-group practice up to competitive fixtures. Sessions cover fitness, ball control, positional understanding and match temperament, and the club fields sides in local tournaments as well as friendly matches against neighbouring clubs and institutions.\n\nCricket follows the same pattern, with net practice, weekend matches and youth-focused coaching for players still learning the fundamentals. Kabaddi holds a special place at the club, keeping a traditional Bangladeshi sport alive among a generation that might otherwise never play it, and our yearly kabaddi festival has become one of the most anticipated events on the calendar.\n\nAlongside competition, the club organises training camps, warm-up sessions, tournaments and sports days that bring families and neighbours out to watch. Fixtures, results and photographs from these events are published here as the season unfolds." },
+        { no:"03", title:"Community service", short:"Using the club's energy to serve people beyond the field.", detail:"A club that gathers young people every week carries a responsibility that does not end at the boundary line. Mohammedan Sporting Club — Faridpur uses that same energy and organisation to serve the wider community around it.\n\nMembers take part in awareness campaigns, cleanliness drives, blood donation programmes and support activities for families going through hardship. During floods, cold spells and other emergencies, the club's network of volunteers can be mobilised quickly, because the habits of teamwork and coordination are already in place.\n\nThe club also opens its ground and its events to the neighbourhood. Community sports days, school competitions and social gatherings give people of every age a reason to come together in a district where such shared spaces are increasingly rare.\n\nFor the young members, this is part of their education. Learning that the discipline built in training can be turned towards the people around them is, in the end, the most valuable thing the club can teach." }
+      ]
+    },
+    sports: {
+      title:"PLAY.", titleAccent:"PARTICIPATE.",
+      items:[
+        { title:"Football", body:"Local football activities, training and competitive events.", image:"sports/football.jpg" },
+        { title:"Cricket", body:"Youth-focused cricket activities and community matches.", image:"sports/cricket.jpg" },
+        { title:"Youth Activities", body:"A platform for young people to learn teamwork, discipline and leadership.", image:"sports/youth.jpg" },
+        { title:"Community Sports", body:"Turning sporting participation into a stronger local community.", image:"sports/community.jpg" }
+      ],
+    },
+    committee: {
+      title:"THE PEOPLE", titleAccent:"BEHIND THE CLUB.", titleHtml:"<i>THE</i> PEOPLE <i>BEHIND THE</i> CLUB.", note:"New management committee", viewAll:"View full committee", hideAll:"Hide full committee", members:"Club members", membersHide:"Hide members", membersHeading:"Club members", membersNote:"Every registered member of the club, committee and non-committee alike.", search:"Search by name or member ID", memberId:"Member ID", noResults:"No member matches that search.", count:"members", hoverHint:"Hover for a closer look",
+      bios: {
+        "Mr. Hanif Mondal": "Leading the club's new management committee and helping shape its sporting and community direction.",
+        "Mr. Rizwan Biswas Tarun": "Supporting the club's administration, coordination and day-to-day organizational work.",
+        "MP Mr. Shahidul Islam Babul": "Serving as an advisor and bringing guidance and community perspective to the club.",
+        "MP Ms Nayar Yousuf": "Serving as an advisor and supporting the club's wider community vision."
+      }
+    },
+    events: {
+      title:"WHAT'S", titleAccent:"HAPPENING.",
+      intro:"Fixtures, registration and results in one place. Open the registration card to sign up as a participant — upcoming matches and past results are posted here through the season.",
+      guide:[
+        { no:"01", title:"Upcoming", text:"The next tournament, match or social activity, announced here first." },
+        { no:"02", title:"Registration", text:"Register as a participant — click to open the form." },
+        { no:"03", title:"Results & stories", text:"Scores, standings and photo stories once an event finishes." }
+      ],
+      form:{
+        heading:"Participant registration", note:"Fill in the details below to register with the club.",
+        photo:"Your photo", photoHint:"JPG or PNG, under 2 MB",
+        name:"Full name", father:"Father's name", mother:"Mother's name", spouse:"Spouse's name", spouseHint:"Leave blank if not applicable",
+        dob:"Date of birth", present:"Present address", permanent:"Permanent address", nid:"NID number",
+        mobile:"Mobile number", email:"Email address",
+        declaration:"I declare that the information given above is correct, and I agree to abide by all rules and regulations of Mohammedan Sporting Club — Faridpur.",
+        preview:"Preview details", previewHeading:"Please check your details", previewNote:"Go back and edit if anything is wrong. Nothing is sent until you confirm.", edit:"Edit details", confirm:"Confirm & submit", notGiven:"—", close:"Close form",
+        success:"Thank you. Your registration has been prepared. The club will contact you once the form is connected to the club's system.",
+        required:"Please complete all required fields and accept the declaration."
+      }
+    },
+    gallery: { title:"MOMENTS IN", titleAccent:"MOTION.", titleHtml:"MOMENTS <i>IN</i><br><i>MOTION.</i>", intro:"Dummy Bangladesh sports imagery is included for now. Later, simply replace the image URLs with your own club photos." },
+    cta: { title:"BE PART OF", accent:"THE MOVEMENT.", body:"Play with purpose. Grow together. Serve the community.", contact:"Contact Club", contactAlt:"Send a message ✉" },
+    contact: { title:"TALK TO", accent:"THE CLUB.", titleHtml:"TALK <i>TO</i><br><i>THE</i> CLUB.", body:"For membership, events, sports activities, sponsorships or community initiatives, send us a message.", name:"Your name", email:"Email address", phone:"Phone number", message:"Your message", send:"Send message", success:"Thank you. Your message is ready to be connected to the club's email or backend when we add it." },
+    footer: { rights:"All rights reserved.", developed:"Developed by" }
+  },
+  bn: {
+    nav: { about:"ক্লাব সম্পর্কে", sports:"খেলাধুলা", committee:"কমিটি", members:"সদস্য", events:"ইভেন্ট", gallery:"গ্যালারি", contact:"যোগাযোগ" },
+    brand: { name:"মোহামেডান", sub:"স্পোর্টিং ক্লাব • ফরিদপুর", club:"স্পোর্টিং ক্লাব", city:"ফরিদপুর", kicker:"ফরিদপুর বিভাগ • বাংলাদেশ", govHeader:"২০২৬ নির্বাচিত কমিটি" },
+    hero: { sub:"ফরিদপুরের তরুণদের একটি ক্রীড়াভিত্তিক কমিউনিটি — শৃঙ্খলা, নেতৃত্ব ও সেবার প্রতীক।", explore:"ক্লাব দেখুন", committee:"কমিটি দেখুন" },
+    about: {
+      title:"শুধু একটি", titleAccent:"ক্লাব নয়।", titleHtml:"<b>শুধু</b> <i>একটি</i><br><b>ক্লাব</b> <i>নয়।</i>",
+      body:"মোহামেডান স্পোর্টিং ক্লাব — ফরিদপুর একটি তরুণ-কেন্দ্রিক স্থানীয় ক্রীড়া কমিউনিটি, যেখানে অংশগ্রহণ, শৃঙ্খলা ও সেবার মিলন ঘটে।",
+      items:[
+        { no:"০১", title:"তরুণদের অংশগ্রহণ", short:"স্থানীয় তরুণদের অংশগ্রহণ, পরিচয় ও বিকাশের একটি প্ল্যাটফর্ম।", detail:"এই ক্লাবের সবকিছুর শুরু তরুণদের নিয়ে। মোহামেডান স্পোর্টিং ক্লাব — ফরিদপুর এমনভাবে গড়ে উঠেছে যেন জেলার যেকোনো তরুণ এখানে নিজের একটা জায়গা খুঁজে পায় — সে প্রশিক্ষিত খেলোয়াড় হোক, কিংবা এমন কেউ যে আগে কখনো সংগঠিত দলে খেলেনি।\n\nসদস্যরা সারা বছর নিয়মিত অনুশীলন, প্র্যাকটিস ম্যাচ ও ক্লাবের নানা কার্যক্রমে অংশ নেয়। সিনিয়র সদস্য ও কোচরা তাদের কৌশল শেখান, তার চেয়েও বেশি শেখান শৃঙ্খলা, সময়ানুবর্তিতা, খেলার সততা এবং সতীর্থ ও প্রতিপক্ষের প্রতি সম্মান। যে ছেলেটি সময়মতো মাঠে আসতে শেখে আর পিছিয়ে পড়া সতীর্থের পাশে দাঁড়াতে শেখে, সে এমন কিছু শেখে যা এক মৌসুমের চেয়ে অনেক বেশি টেকে।\n\nঅংশগ্রহণের দরজা ইচ্ছে করেই খোলা রাখা হয়েছে। স্কুল-কলেজের ছেলেমেয়ে থেকে শুরু করে কর্মজীবী তরুণ — সবার জায়গা আছে এখানে। সরঞ্জাম নেই বা অভিজ্ঞতা নেই বলে কাউকে ফিরিয়ে দেওয়া হয় না। দরকার শুধু মাঠে আসার ইচ্ছা, সৎভাবে অনুশীলন আর ক্লাবের নাম রাখার তাগিদ।\n\nসময়ের সাথে এটি শুধু খেলা থাকে না। তরুণরা এমন বন্ধুত্ব গড়ে যা মাঠের বাইরেও টিকে থাকে, দলগত কাজ শেখে, ছোট ছোট দায়িত্ব নিতে শেখে, আর একদিন নিজেরাই সেই সিনিয়র হয়ে ওঠে যারা পরের দলটিকে একই পথ ধরে এগিয়ে নেয়।" },
+        { no:"০২", title:"খেলাধুলা ও কার্যক্রম", short:"ফুটবল, ক্রিকেট, তরুণদের কার্যক্রম ও কমিউনিটি আয়োজন।", detail:"খেলাধুলাই ক্লাবের প্রাণ। আমাদের বর্ষপঞ্জির সবচেয়ে বড় অংশ জুড়ে আছে ফুটবল ও ক্রিকেট, সাথে ব্যাডমিন্টন, কাবাডিসহ আরও নানা আয়োজন যা সদস্যদের সারা বছর সক্রিয় রাখে।\n\nফুটবল চলে বয়সভিত্তিক অনুশীলন থেকে প্রতিযোগিতামূলক ম্যাচ পর্যন্ত। অনুশীলনে থাকে ফিটনেস, বল নিয়ন্ত্রণ, পজিশন বোঝা আর ম্যাচের মেজাজ ধরে রাখার শিক্ষা। ক্লাব স্থানীয় টুর্নামেন্টে দল পাঠায়, পাশাপাশি আশপাশের ক্লাব ও প্রতিষ্ঠানের সাথে প্রীতি ম্যাচ খেলে।\n\nক্রিকেটেও একই ধারা — নেট প্র্যাকটিস, সাপ্তাহিক ম্যাচ আর নতুনদের জন্য মৌলিক কৌশলের প্রশিক্ষণ। কাবাডি আমাদের কাছে বিশেষ, কারণ এই ঐতিহ্যবাহী খেলাটি এমন এক প্রজন্মের কাছে বাঁচিয়ে রাখা হচ্ছে যারা হয়তো নইলে কখনো খেলার সুযোগই পেত না। বছরের কাবাডি উৎসব এখন ক্লাবের সবচেয়ে প্রতীক্ষিত আয়োজনগুলোর একটি।\n\nপ্রতিযোগিতার পাশাপাশি ক্লাব আয়োজন করে প্রশিক্ষণ শিবির, ওয়ার্ম-আপ সেশন, টুর্নামেন্ট ও ক্রীড়া দিবস, যেখানে পরিবার-প্রতিবেশীরাও খেলা দেখতে আসেন। মৌসুম এগোনোর সাথে সাথে এসব আয়োজনের সূচি, ফলাফল ও ছবি এখানে প্রকাশ করা হবে।" },
+        { no:"০৩", title:"সমাজসেবা", short:"মাঠের বাইরেও ক্লাবের শক্তি মানুষের কাজে লাগানো।", detail:"যে ক্লাব প্রতি সপ্তাহে তরুণদের একত্র করে, তার দায়িত্ব মাঠের সীমানায় শেষ হয় না। মোহামেডান স্পোর্টিং ক্লাব — ফরিদপুর সেই একই শক্তি ও সংগঠন কাজে লাগায় চারপাশের মানুষের সেবায়।\n\nসদস্যরা অংশ নেয় সচেতনতামূলক প্রচারণা, পরিচ্ছন্নতা অভিযান, রক্তদান কর্মসূচি এবং দুর্দশাগ্রস্ত পরিবারের পাশে দাঁড়ানোর নানা উদ্যোগে। বন্যা, শীত বা অন্য কোনো দুর্যোগে ক্লাবের স্বেচ্ছাসেবকদের দ্রুত সংগঠিত করা যায়, কারণ দলগত কাজ আর সমন্বয়ের অভ্যাসটা আগে থেকেই তৈরি।\n\nক্লাব তার মাঠ ও আয়োজন এলাকাবাসীর জন্যও খুলে দেয়। কমিউনিটি ক্রীড়া দিবস, স্কুল প্রতিযোগিতা আর সামাজিক জমায়েত সব বয়সের মানুষকে একসাথে হওয়ার উপলক্ষ দেয় — এমন এক সময়ে, যখন এরকম সম্মিলিত জায়গা দিন দিন কমে আসছে।\n\nতরুণ সদস্যদের জন্য এটিও শিক্ষারই অংশ। অনুশীলনে গড়ে ওঠা শৃঙ্খলা যে চারপাশের মানুষের কাজেও লাগানো যায় — এই বোধটুকুই সম্ভবত ক্লাবের সবচেয়ে মূল্যবান শিক্ষা।" }
+      ]
+    },
+    sports: {
+      title:"খেলুন।", titleAccent:"অংশ নিন।",
+      items:[
+        { title:"ফুটবল", body:"স্থানীয় ফুটবল কার্যক্রম, প্রশিক্ষণ ও প্রতিযোগিতামূলক আয়োজন।", image:"sports/football.jpg" },
+        { title:"ক্রিকেট", body:"তরুণদের জন্য ক্রিকেট কার্যক্রম ও কমিউনিটি ম্যাচ।", image:"sports/cricket.jpg" },
+        { title:"তরুণ কার্যক্রম", body:"দলগত কাজ, শৃঙ্খলা ও নেতৃত্ব শেখার একটি প্ল্যাটফর্ম।", image:"sports/youth.jpg" },
+        { title:"কমিউনিটি স্পোর্টস", body:"খেলাধুলার অংশগ্রহণকে আরও শক্তিশালী স্থানীয় কমিউনিটিতে রূপ দেওয়া।", image:"sports/community.jpg" }
+      ],
+    },
+    committee: {
+      title:"যারা আছেন", titleAccent:"ক্লাবের পেছনে।", titleHtml:"<i>যারা</i> আছেন ক্লাবের <i>পেছনে।</i>", note:"নতুন পরিচালনা কমিটি", viewAll:"পূর্ণ কমিটি দেখুন", hideAll:"পূর্ণ কমিটি লুকান", members:"ক্লাব সদস্য", membersHide:"সদস্য তালিকা লুকান", membersHeading:"ক্লাব সদস্য", membersNote:"ক্লাবের নিবন্ধিত সব সদস্য — কমিটির ভেতরে ও বাইরে।", search:"নাম বা সদস্য নম্বর দিয়ে খুঁজুন", memberId:"সদস্য নম্বর", noResults:"এই খোঁজে কোনো সদস্য পাওয়া যায়নি।", count:"জন সদস্য", hoverHint:"ছবির উপর মাউস নিন",
+      bios: {
+        "Mr. Hanif Mondal": "নতুন পরিচালনা কমিটির নেতৃত্ব দিচ্ছেন এবং ক্লাবের ক্রীড়া ও সামাজিক কার্যক্রমের দিকনির্দেশনা দিচ্ছেন।",
+        "Mr. Rizwan Biswas Tarun": "ক্লাবের প্রশাসন, সমন্বয় ও দৈনন্দিন সাংগঠনিক কার্যক্রমে নেতৃত্ব দিচ্ছেন।",
+        "MP Mr. Shahidul Islam Babul": "উপদেষ্টা হিসেবে ক্লাবকে দিকনির্দেশনা ও কমিউনিটি-ভিত্তিক পরামর্শ দিচ্ছেন।",
+        "MP Ms Nayar Yousuf": "উপদেষ্টা হিসেবে ক্লাবের বৃহত্তর কমিউনিটি ভিশনে সহায়তা করছেন।"
+      }
+    },
+    events: {
+      title:"কী হচ্ছে", titleAccent:"এখন।",
+      intro:"সূচি, নিবন্ধন ও ফলাফল — সব এক জায়গায়। অংশগ্রহণকারী হিসেবে নাম লেখাতে রেজিস্ট্রেশন কার্ডটি খুলুন। আসন্ন ম্যাচ ও আগের ফলাফল সারা মৌসুম এখানেই থাকবে।",
+      guide:[
+        { no:"০১", title:"আসন্ন", text:"পরবর্তী টুর্নামেন্ট, ম্যাচ বা সামাজিক কার্যক্রমের ঘোষণা এখানেই আগে আসবে।" },
+        { no:"০২", title:"রেজিস্ট্রেশন", text:"অংশগ্রহণকারী হিসেবে নিবন্ধন করুন — ফর্ম খুলতে ক্লিক করুন।" },
+        { no:"০৩", title:"ফলাফল ও গল্প", text:"ইভেন্ট শেষে স্কোর, ফলাফল ও ছবির গল্প এখানে প্রকাশ করা হবে।" }
+      ],
+      form:{
+        heading:"অংশগ্রহণকারীর নিবন্ধন", note:"ক্লাবে নিবন্ধনের জন্য নিচের তথ্যগুলো পূরণ করুন।",
+        photo:"আপনার ছবি", photoHint:"JPG বা PNG, ২ মেগাবাইটের কম",
+        name:"পূর্ণ নাম", father:"পিতার নাম", mother:"মাতার নাম", spouse:"স্বামী/স্ত্রীর নাম", spouseHint:"প্রযোজ্য না হলে খালি রাখুন",
+        dob:"জন্ম তারিখ", present:"বর্তমান ঠিকানা", permanent:"স্থায়ী ঠিকানা", nid:"জাতীয় পরিচয়পত্র নম্বর",
+        mobile:"মোবাইল নম্বর", email:"ইমেইল ঠিকানা",
+        declaration:"আমি ঘোষণা করছি যে উপরের তথ্যগুলো সঠিক এবং আমি মোহামেডান স্পোর্টিং ক্লাব — ফরিদপুরের সকল নিয়ম-কানুন মেনে চলতে বাধ্য থাকব।",
+        preview:"তথ্য দেখে নিন", previewHeading:"আপনার তথ্যগুলো মিলিয়ে নিন", previewNote:"কিছু ভুল থাকলে ফিরে গিয়ে ঠিক করুন। নিশ্চিত না করা পর্যন্ত কিছুই পাঠানো হবে না।", edit:"তথ্য সংশোধন", confirm:"নিশ্চিত করে জমা দিন", notGiven:"—", close:"ফর্ম বন্ধ করুন",
+        success:"ধন্যবাদ। আপনার নিবন্ধন প্রস্তুত হয়েছে। ফর্মটি ক্লাবের সিস্টেমে সংযুক্ত হলে ক্লাব আপনার সাথে যোগাযোগ করবে।",
+        required:"অনুগ্রহ করে সব আবশ্যক ঘর পূরণ করুন এবং ঘোষণায় সম্মতি দিন।"
+      }
+    },
+    gallery: { title:"কিছু", titleAccent:"স্মরণীয় মুহূর্ত।", titleHtml:"<i>কিছু</i><br>স্মরণীয় মুহূর্ত।", intro:"এখন কিছু ডামি বাংলাদেশি স্পোর্টস ছবি রাখা হয়েছে। পরে ছবির URL বদলালেই আপনার ক্লাবের ছবি বসবে।" },
+    cta: { title:"অগ্রগতির", accent:"অংশ হোন।", body:"উদ্দেশ্য নিয়ে খেলুন। একসাথে এগিয়ে যান। সমাজের পাশে থাকুন।", contact:"যোগাযোগ করুন", contactAlt:"বার্তা পাঠান ✉" },
+    contact: { title:"ক্লাবের সাথে", accent:"কথা বলুন।", titleHtml:"<i>ক্লাবের সাথে</i><br>কথা বলুন।", body:"সদস্যপদ, ইভেন্ট, খেলাধুলা, স্পনসরশিপ বা সামাজিক উদ্যোগ নিয়ে যোগাযোগ করতে আমাদের বার্তা পাঠান।", name:"আপনার নাম", email:"ইমেইল ঠিকানা", phone:"ফোন নম্বর", message:"আপনার বার্তা", send:"বার্তা পাঠান", success:"ধন্যবাদ। ক্লাবের ইমেইল বা ব্যাকএন্ড সংযুক্ত হলে এই ফর্মটি সরাসরি কাজ করবে।" },
+    footer: { rights:"সর্বস্বত্ব সংরক্ষিত।", developed:"Developed by" }
+  }
+};
+
+// Club members who are NOT on the committee.
+// Add one line per member. Photo is optional — drop the file in members/ and
+// point to it, e.g. image:"members/MSC-018.jpg". Without a photo the card
+// shows the member's initials instead.
+const extraMembers = [
+  // { id:"MSC-018", name:{ en:"Member name", bn:"সদস্যের নাম" }, image:"members/MSC-018.jpg" },
+];
+
+const committee = [
+  { id:"MSC-001", name:{ en:"MP Mr. Shahidul Islam Babul", bn:"এমপি জনাব শহীদুল ইসলাম বাবুল" }, role:{ en:"Advisor", bn:"উপদেষ্টা" }, image:"images/adviser-01.png" },
+  { id:"MSC-002", name:{ en:"MP Ms Nayar Yousuf", bn:"এমপি নায়ার ইউসুফ" }, role:{ en:"Advisor", bn:"উপদেষ্টা" }, image:"images/adviser-02.png" },
+  { id:"MSC-003", name:{ en:"Mr. Hanif Mondal", bn:"জনাব হানিফ মন্ডল" }, role:{ en:"President", bn:"সভাপতি" }, image:"images/president.png" },
+  { id:"MSC-004", name:{ en:"Mr. Rizwan Biswas Tarun", bn:"জনাব রিজওয়ান বিশ্বাস তরুণ" }, role:{ en:"Secretary", bn:"সাধারণ সম্পাদক" }, image:"images/secretary.png" },
+  { id:"MSC-005", name:{ en:"K M Mojibur Rahman Milu", bn:"কে এম মজিবুর রহমান মিলু" }, role:{ en:"Senior Vice President", bn:"সিনিয়র সহসভাপতি" } },
+  { id:"MSC-006", name:{ en:"Emran Ahmmad", bn:"এমরান আহম্মদ" }, role:{ en:"Vice President", bn:"সহসভাপতি" } },
+  { id:"MSC-007", name:{ en:"Zakir Hossain Milon", bn:"জাকির হোসেন মিলন" }, role:{ en:"Vice President", bn:"সহসভাপতি" } },
+  { id:"MSC-008", name:{ en:"Sharafat Miah", bn:"শারাফত মিয়া" }, role:{ en:"Vice President", bn:"সহসভাপতি" } },
+  { id:"MSC-009", name:{ en:"Khaled Hasan Lavlu Thakur", bn:"খালেদ হাসান লাভলু ঠাকুর" }, role:{ en:"Vice President", bn:"সহসভাপতি" } },
+  { id:"MSC-010", name:{ en:"Khan Md. Parvez Sazzad", bn:"খান মো. পারভেজ সাজ্জাদ" }, role:{ en:"Vice President", bn:"সহসভাপতি" } },
+  { id:"MSC-011", name:{ en:"Pran Krishna Karmakar", bn:"প্রাণ কৃষ্ণ কর্মকার" }, role:{ en:"Vice President", bn:"সহসভাপতি" } },
+  { id:"MSC-012", name:{ en:"Ashutosh Ghosh", bn:"আশুতোষ ঘোষ" }, role:{ en:"Vice President", bn:"সহসভাপতি" } },
+  { id:"MSC-013", name:{ en:"Shahin Ahmmed", bn:"শাহিন আহম্মেদ" }, role:{ en:"Joint General Secretary", bn:"সহসাধারণ সম্পাদক" } },
+  { id:"MSC-014", name:{ en:"M A Akter Dodul", bn:"এম এ আক্তার দোদুল" }, role:{ en:"Joint General Secretary", bn:"সহসাধারণ সম্পাদক" } },
+  { id:"MSC-015", name:{ en:"Md. Abdullah", bn:"মো. আব্দুল্লাহ" }, role:{ en:"Joint General Secretary", bn:"সহসাধারণ সম্পাদক" } },
+  { id:"MSC-016", name:{ en:"Md. Solayman", bn:"মো. সোলায়মান" }, role:{ en:"Organizing Secretary", bn:"সাংগঠনিক সম্পাদক" } },
+  { id:"MSC-017", name:{ en:"Dr. Tansiv Zubayer Nadim", bn:"চিকিৎসক তানসিভ জুবায়ের নাদিম" }, role:{ en:"Assistant Health Affairs Secretary", bn:"সহ-স্বাস্থ্য বিষয়ক সম্পাদক" } }
+];
+
+
+const gallery = [
+  { title:"Kids Football Match", category:"FOOTBALL", image:"gallery/001.jpg" },
+  { title:"Under-16 Football Match", category:"FOOTBALL", image:"gallery/002.jpg" },
+  { title:"Training Session", category:"TRAINING", image:"gallery/003.jpg" },
+  { title:"Cricket Practice Session", category:"CRICKET", image:"gallery/004.jpg" },
+  { title:"Football Warm Up", category:"FOOTBALL", image:"gallery/005.jpg" },
+  { title:"Warm Up Session", category:"TRAINING", image:"gallery/006.jpg" },
+  { title:"Cricket Match", category:"CRICKET", image:"gallery/007.jpg" },
+  { title:"Group Photo", category:"CLUB", image:"gallery/008.jpg" },
+  { title:"Badminton Match", category:"BADMINTON", image:"gallery/009.jpg" },
+  { title:"Badminton Match", category:"BADMINTON", image:"gallery/010.jpg" },
+  { title:"Yearly Kabaddi Festival", category:"KABADDI", image:"gallery/011.jpg" },
+  { title:"Kabaddi Match", category:"KABADDI", image:"gallery/012.jpg" },
+  { title:"Club Moments", category:"CLUB", image:"gallery/013.jpg" }
+];
+
+// ===== STATE =====
+let lang = 'en';
+let aboutActive = 0;
+let menuOpen = false;
+
+// ===== SCROLL =====
+function navScrollTo(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior:'smooth' });
+  if (menuOpen) toggleMenu();
+}
+
+// ===== LANGUAGE =====
+function toggleLang() {
+  lang = lang === 'en' ? 'bn' : 'en';
+  document.getElementById('langLabel').textContent = lang === 'en' ? 'বা' : 'E';
+  document.documentElement.setAttribute('data-lang', lang);
+  renderAll();
+}
+
+// ===== MENU =====
+function toggleMenu() {
+  menuOpen = !menuOpen;
+  const nl = document.getElementById('navLinks');
+  const mb = document.getElementById('menuBtn');
+  nl.classList.toggle('open', menuOpen);
+  mb.textContent = menuOpen ? '✕' : '☰';
+}
+
+// ===== GOV PANEL =====
+function expandGov(key) {
+  const el = document.getElementById('gov-' + key);
+  if (el) el.classList.add('expanded');
+}
+function collapseGov(key) {
+  const el = document.getElementById('gov-' + key);
+  if (el) el.classList.remove('expanded');
+}
+
+// ===== ABOUT TABS =====
+function setAboutTab(i) {
+  aboutActive = i;
+  renderAboutTabs();
+}
+
+function renderAboutTabs() {
+  const t = content[lang];
+  const container = document.getElementById('aboutTabs');
+  container.innerHTML = t.about.items.map((item, i) => `
+    <button class="about-tab ${aboutActive === i ? 'active' : ''}" onclick="setAboutTab(${i})">
+      <span>${item.no}</span>
+      <div><strong>${item.title}</strong><small>${item.short}</small></div>
+      <span class="chevron">›</span>
+    </button>
+  `).join('') + `
+    <div class="about-detail active">
+      <span>${t.about.items[aboutActive].no}</span>
+      ${t.about.items[aboutActive].detail.split('\n\n').map(par => `<p>${par}</p>`).join('')}
+    </div>
+  `;
+}
+
+// ===== SPORTS =====
+const sportIcons = ['🏆','👥','🤝','▶'];
+function renderSports() {
+  const t = content[lang];
+  const grid = document.getElementById('sportsGrid');
+  grid.innerHTML = t.sports.items.map((item, i) => `
+    <article class="sport-card">
+      <div class="sport-photo"><img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.parentElement.style.display='none'" /></div>
+      <span class="card-number">0${i+1}</span>
+      <div class="sport-icon">${sportIcons[i]}</div>
+      <h3>${item.title}</h3>
+      <p>${item.body}</p>
+      <span class="card-arrow">↗</span>
+    </article>
+  `).join('');
+}
+
+// ===== CLUB MEMBERS =====
+let membersOpen = false;
+
+function allMembers() {
+  return committee.concat(extraMembers).slice().sort((a, b) => a.id.localeCompare(b.id));
+}
+
+function renderMembers(filter) {
+  const t = content[lang];
+  const wrap = document.getElementById('membersWrap');
+  if (!wrap) return;
+  const q = (filter || '').trim().toLowerCase();
+  const list = allMembers().filter(m =>
+    !q || m.id.toLowerCase().includes(q) || m.name[lang].toLowerCase().includes(q) || m.name.en.toLowerCase().includes(q)
+  );
+  wrap.innerHTML = `
+    <div class="members-panel">
+      <div class="members-head">
+        <div><b>${t.committee.membersHeading}</b><small>${t.committee.membersNote}</small></div>
+        <input class="members-search" type="search" placeholder="${t.committee.search}" value="${q ? filter : ''}" oninput="renderMembers(this.value)" />
+      </div>
+      ${list.length ? `<div class="members-grid">${list.map(m => `
+        <article class="member-card">
+          <div class="member-photo">${m.image
+            ? `<img src="${m.image}" alt="${m.name[lang]}" loading="lazy" onerror="this.parentElement.innerHTML='<span>${m.name[lang].slice(0,2)}</span>'" />`
+            : `<span>${m.name[lang].slice(0,2)}</span>`}</div>
+          <div class="member-info"><b>${m.name[lang]}</b><small>${t.committee.memberId} · ${m.id}</small></div>
+        </article>`).join('')}</div>
+        <p class="members-count">${list.length} ${t.committee.count}</p>`
+      : `<p class="members-empty">${t.committee.noResults}</p>`}
+    </div>
+  `;
+  if (q) wrap.querySelector('.members-search').focus();
+}
+
+function navToMembers() {
+  if (!membersOpen) toggleMembers();
+  else document.getElementById('membersWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (menuOpen) toggleMenu();
+}
+
+function toggleMembers() {
+  membersOpen = !membersOpen;
+  const wrap = document.getElementById('membersWrap');
+  if (membersOpen) renderMembers('');
+  wrap.classList.toggle('open', membersOpen);
+  document.getElementById('membersArrow').textContent = membersOpen ? '↑' : '↓';
+  document.getElementById('membersLabel').textContent = membersOpen
+    ? content[lang].committee.membersHide : content[lang].committee.members;
+  if (membersOpen) setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+}
+
+// ===== REGISTRATION FORM =====
+let regOpen = false;
+
+function renderRegForm() {
+  const f = content[lang].events.form;
+  const wrap = document.getElementById('regWrap');
+  if (!wrap) return;
+  wrap.className = 'reg-wrap' + (regOpen ? ' open' : '');
+  wrap.innerHTML = `
+    <form class="reg-form" onsubmit="submitReg(event)">
+      <div class="reg-head">
+        <div><b>${f.heading}</b><small>${f.note}</small></div>
+        <button type="button" class="reg-close" onclick="toggleRegForm()">${f.close} ✕</button>
+      </div>
+      <div class="reg-photo-row">
+        <div class="reg-photo-box" id="regPhotoBox"><span>+</span></div>
+        <label class="reg-field reg-photo-label">${f.photo}
+          <input type="file" accept="image/*" onchange="previewRegPhoto(event)" />
+          <small>${f.photoHint}</small>
+        </label>
+      </div>
+      <div class="reg-grid">
+        <label class="reg-field">${f.name} *<input required name="name" /></label>
+        <label class="reg-field">${f.dob} *<input required type="date" name="dob" /></label>
+        <label class="reg-field">${f.father} *<input required name="father" /></label>
+        <label class="reg-field">${f.mother} *<input required name="mother" /></label>
+        <label class="reg-field">${f.spouse}<input name="spouse" placeholder="${f.spouseHint}" /></label>
+        <label class="reg-field">${f.nid} *<input required name="nid" inputmode="numeric" /></label>
+        <label class="reg-field">${f.mobile} *<input required name="mobile" inputmode="tel" /></label>
+        <label class="reg-field">${f.email}<input type="email" name="email" /></label>
+        <label class="reg-field wide">${f.present} *<textarea required rows="2" name="present"></textarea></label>
+        <label class="reg-field wide">${f.permanent} *<textarea required rows="2" name="permanent"></textarea></label>
+      </div>
+      <label class="reg-declare"><input type="checkbox" required name="declaration" /><span>${f.declaration}</span></label>
+      <button class="committee-cta reg-submit" type="submit"><span>${f.preview}</span> <b>➤</b></button>
+    </form>
+    <div class="reg-preview" id="regPreview"></div>
+  `;
+}
+
+function toggleRegForm() {
+  regOpen = !regOpen;
+  const wrap = document.getElementById('regWrap');
+  wrap.classList.toggle('open', regOpen);
+  if (regOpen) setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+}
+
+let regPhotoData = '';
+
+function previewRegPhoto(e) {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const box = document.getElementById('regPhotoBox');
+  const reader = new FileReader();
+  reader.onload = () => { regPhotoData = reader.result; box.innerHTML = `<img src="${reader.result}" alt="" />`; };
+  reader.readAsDataURL(file);
+}
+
+function submitReg(e) {
+  e.preventDefault();
+  const f = content[lang].events.form;
+  const d = new FormData(e.currentTarget);
+  const val = (k) => (d.get(k) || '').toString().trim() || f.notGiven;
+  const rows = [
+    [f.name, val('name')], [f.dob, val('dob')],
+    [f.father, val('father')], [f.mother, val('mother')],
+    [f.spouse, val('spouse')], [f.nid, val('nid')],
+    [f.mobile, val('mobile')], [f.email, val('email')],
+    [f.present, val('present')], [f.permanent, val('permanent')]
+  ];
+  const prev = document.getElementById('regPreview');
+  prev.innerHTML = `
+    <div class="reg-prev-head"><b>${f.previewHeading}</b><small>${f.previewNote}</small></div>
+    <div class="reg-prev-body">
+      ${regPhotoData ? `<img class="reg-prev-photo" src="${regPhotoData}" alt="" />` : ''}
+      <dl class="reg-prev-list">
+        ${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}
+      </dl>
+    </div>
+    <p class="reg-prev-declare">✓ ${f.declaration}</p>
+    <div class="reg-prev-actions">
+      <button type="button" class="reg-close" onclick="regBackToEdit()">← ${f.edit}</button>
+      <button type="button" class="committee-cta" onclick="regConfirm()"><span>${f.confirm}</span> <b>➤</b></button>
+    </div>
+    <p class="reg-success" id="regSuccess">${f.success}</p>
+  `;
+  document.querySelector('.reg-form').style.display = 'none';
+  prev.classList.add('open');
+  prev.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function regBackToEdit() {
+  document.getElementById('regPreview').classList.remove('open');
+  const form = document.querySelector('.reg-form');
+  form.style.display = '';
+  form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function regConfirm() {
+  document.getElementById('regSuccess').style.display = 'block';
+  document.querySelector('.reg-prev-actions').style.display = 'none';
+}
+
+// ===== COMMITTEE (leaders) =====
+function renderLeaders() {
+  const t = content[lang];
+  const leaders = document.getElementById('leaders');
+  leaders.innerHTML = committee.slice(0, 4).map((person, i) => `
+    <article class="person-card">
+      <div class="person-photo">
+        ${person.image ? `<img src="${person.image}" alt="${person.name[lang]}" onerror="this.parentElement.innerHTML='<div class=person-photo-initials>${person.name[lang].slice(0,2)}</div>'" loading="lazy" />` : `<div class="person-photo-initials">${person.name[lang].slice(0,2)}</div>`}
+      </div>
+      <div class="person-meta">
+        <span>${person.role[lang]}</span>
+        <h3>${person.name[lang]}</h3>
+      </div>
+    </article>
+  `).join('');
+}
+
+// ===== EVENTS =====
+function renderEvents() {
+  const t = content[lang];
+  const guide = document.getElementById('eventGuide');
+  guide.innerHTML = t.events.guide.map((item, i) => `
+    <div${i === 1 ? ' class="clickable" onclick="toggleRegForm()"' : ''}><span>${item.no}</span><b>${item.title}</b><p>${item.text}</p></div>
+  `).join('');
+  renderRegForm();
+}
+
+// ===== GALLERY =====
+function renderGallery() {
+  const grid = document.getElementById('galleryGrid');
+  grid.innerHTML = gallery.map((item, i) => `
+    <figure class="gallery-item gallery-${i+1}">
+      <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.closest('figure').style.display='none'" />
+      <figcaption><span>${item.category}</span><b>${item.title}</b></figcaption>
+    </figure>
+  `).join('');
+}
+
+// ===== FULL COMMITTEE (inline) =====
+let fullOpen = false;
+
+function renderRest() {
+  const rest = document.getElementById('committeeRest');
+  rest.innerHTML = committee.slice(4).map(person => `
+    <article class="person-card">
+      <div class="person-photo">
+        ${person.image ? `<img src="${person.image}" alt="${person.name[lang]}" onerror="this.parentElement.innerHTML='<div class=person-photo-initials>${person.name[lang].slice(0,2)}</div>'" loading="lazy" />` : `<div class="person-photo-initials">${person.name[lang].slice(0,2)}</div>`}
+      </div>
+      <div class="person-meta">
+        <span>${person.role[lang]}</span>
+        <h3>${person.name[lang]}</h3>
+      </div>
+    </article>
+  `).join('');
+}
+
+function toggleFullCommittee() {
+  fullOpen = !fullOpen;
+  const rest = document.getElementById('committeeRest');
+  if (fullOpen) renderRest();
+  rest.classList.toggle('open', fullOpen);
+  document.getElementById('viewAllArrow').textContent = fullOpen ? '↑' : '↓';
+  document.getElementById('viewAllLabel').textContent = fullOpen ? content[lang].committee.hideAll : content[lang].committee.viewAll;
+  if (fullOpen) setTimeout(() => rest.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+}
+
+// ===== FORM =====
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('formSuccess').style.display = 'block';
+  e.currentTarget.reset();
+}
+
+// ===== RENDER ALL (language switch) =====
+function renderAll() {
+  const t = content[lang];
+
+  // Nav labels
+  ['about','sports','committee','members','events','gallery','contact'].forEach(id => {
+    const el = document.getElementById('nav' + id.charAt(0).toUpperCase() + id.slice(1));
+    if (el) el.textContent = t.nav[id];
+    const lbl = document.getElementById('nav' + id.charAt(0).toUpperCase() + id.slice(1) + 'Label');
+    if (lbl) lbl.textContent = t.nav[id];
+  });
+
+  // Brand + hero title
+  document.getElementById('brandName').textContent = t.brand.name;
+  document.getElementById('brandSub').textContent = t.brand.sub;
+  document.getElementById('heroName').textContent = t.brand.name;
+  document.getElementById('heroClub').textContent = t.brand.club;
+  document.getElementById('heroCity').textContent = t.brand.city;
+  document.getElementById('heroKicker').textContent = t.brand.kicker;
+  document.getElementById('govHeader').textContent = t.brand.govHeader;
+
+  // Hero
+  document.getElementById('heroSub').textContent = t.hero.sub;
+  document.getElementById('heroExplore').textContent = t.hero.explore;
+  document.getElementById('heroCommittee').textContent = t.hero.committee;
+
+  // Gov panel buttons
+  const govCapIds = { 'gen-sec':'govCapGenSec' };
+  const mpCaps = { govCapPresident:{ en:'Managing Director,\nR.PH. Group', bn:'ব্যবস্থাপনা পরিচালক,\nআর.পি.এইচ. গ্রুপ' }, govCapAdviser1:{ en:'Member of Parliament, Faridpur-04', bn:'সংসদ সদস্য, ফরিদপুর-০৪' }, govCapAdviser2:{ en:'Member of Parliament, Faridpur-03', bn:'সংসদ সদস্য, ফরিদপুর-০৩' } };
+  const govNameIds = { govNameAdviser1:0, govNameAdviser2:1, govNamePresident:2, govNameGenSec:3 };
+  Object.entries(govNameIds).forEach(([id, idx]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = committee[idx].name[lang];
+  });
+  Object.entries(mpCaps).forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val[lang];
+  });
+  const govBtns = { president:'President', 'gen-sec':'Gen. Secretary', adviser1:'Adviser', adviser2:'Adviser', member:'Committee Member' };
+  if (lang === 'bn') {
+    const govBtnsBn = { president:'সভাপতি', 'gen-sec':'সাধারণ সম্পাদক', adviser1:'উপদেষ্টা', adviser2:'উপদেষ্টা', member:'কমিটি সদস্য' };
+    Object.entries(govBtnsBn).forEach(([key, val]) => {
+      const el = document.querySelector(`#gov-${key} .hero-gov-btn`);
+      if (el) el.textContent = val;
+      const cap = document.getElementById(govCapIds[key]);
+      if (cap) cap.textContent = val;
+    });
+  } else {
+    Object.entries(govBtns).forEach(([key, val]) => {
+      const el = document.querySelector(`#gov-${key} .hero-gov-btn`);
+      if (el) el.textContent = val;
+      const cap = document.getElementById(govCapIds[key]);
+      if (cap) cap.textContent = val;
+    });
+  }
+
+  // About
+  document.getElementById('aboutTitle').innerHTML = t.about.titleHtml;
+  document.getElementById('aboutBody').textContent = t.about.body;
+  renderAboutTabs();
+
+  // Sports
+  document.getElementById('sportsTitle').innerHTML = `${t.sports.title} <i>${t.sports.titleAccent}</i>`;
+  renderSports();
+
+  // Committee
+  document.getElementById('committeeTitle').innerHTML = t.committee.titleHtml;
+  document.getElementById('viewAllLabel').textContent = fullOpen ? t.committee.hideAll : t.committee.viewAll;
+  if (fullOpen) renderRest();
+  document.getElementById('membersLabel').textContent = membersOpen ? t.committee.membersHide : t.committee.members;
+  if (membersOpen) renderMembers('');
+  renderLeaders();
+
+  // Events
+  document.getElementById('eventsTitle').innerHTML = `${t.events.title}<br><i>${t.events.titleAccent}</i>`;
+  document.getElementById('eventsIntro').textContent = t.events.intro;
+  renderEvents();
+
+  // Gallery
+  document.getElementById('galleryTitle').innerHTML = t.gallery.titleHtml;
+
+  // CTA
+  document.getElementById('ctaTitle').innerHTML = `${t.cta.title}<br><i>${t.cta.accent}</i>`;
+  document.getElementById('ctaBody').textContent = t.cta.body;
+  const ctaBtn = document.getElementById('ctaContact');
+  ctaBtn.setAttribute('data-title', t.cta.contact);
+  ctaBtn.setAttribute('data-text', t.cta.contactAlt);
+
+  // Contact
+  document.getElementById('contactTitle').innerHTML = t.contact.titleHtml;
+  document.getElementById('contactBody').textContent = t.contact.body;
+  document.getElementById('contactNameLabel').firstChild.textContent = t.contact.name;
+  document.getElementById('contactEmailLabel').firstChild.textContent = t.contact.email;
+  document.getElementById('contactPhoneLabel').firstChild.textContent = t.contact.phone;
+  document.getElementById('contactMsgLabel').firstChild.textContent = t.contact.message;
+  document.getElementById('contactSend').textContent = t.contact.send;
+  document.getElementById('formSuccess').textContent = t.contact.success;
+
+  // Footer
+  document.getElementById('footerRights').textContent = t.footer.rights;
+  document.getElementById('footerDev').textContent = t.footer.developed;
+}
+
+// ===== INIT =====
+renderGallery();
+renderAll();
+</script>
+</body>
+</html>
