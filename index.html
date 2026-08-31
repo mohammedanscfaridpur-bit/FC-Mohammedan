@@ -162,7 +162,7 @@ button{cursor:pointer}
 
 /* ===== ABOUT ===== */
 .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:7vw;align-items:start;margin-top:-45px}
-.about-statement{margin-top:-50px;font-size:clamp(21px,2.7vw,38px);line-height:1.25;letter-spacing:-.045em;max-width:800px;position:relative}
+.about-statement{margin-top:-6px;font-size:clamp(18px,2.1vw,30px);line-height:1.35;letter-spacing:-.045em;max-width:800px;position:relative}
 .big-mark{position:absolute;left:-38px;top:60px;font-size:80px;color:#bbb}
 .about-tabs{border-top:1px solid var(--line);margin-top:-165px}
 .about-tab{position:relative;overflow:hidden;width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;padding:20px 14px;display:grid;grid-template-columns:45px 1fr 22px;gap:15px;align-items:center;text-align:left;color:#777;cursor:pointer;transition:color .3s ease,background .3s ease}
@@ -526,7 +526,7 @@ R.PH. Group</span></div></div>
       </div>
       <label id="contactMsgLabel">Your message<textarea required rows="6" name="message"></textarea></label>
       <button class="committee-cta form-cta" type="submit"><span id="contactSend">Send message</span> <b>➤</b></button>
-      <p class="form-success" id="formSuccess" style="display:none">Thank you. Your message is ready to be connected to the club's email or backend when we add it.</p>
+      <p class="form-success" id="formSuccess" style="display:none">Thank you. Your message has been sent to the club — we will get back to you soon.</p>
     </form>
   </div>
 </section>
@@ -593,14 +593,14 @@ const content = {
         dob:"Date of birth", present:"Present address", permanent:"Permanent address", nid:"NID number",
         mobile:"Mobile number", email:"Email address",
         declaration:"I declare that the information given above is correct, and I agree to abide by all rules and regulations of Mohammedan Sporting Club — Faridpur.",
-        preview:"Preview details", previewHeading:"Please check your details", previewNote:"Go back and edit if anything is wrong. Nothing is sent until you confirm.", edit:"Edit details", confirm:"Confirm & submit", notGiven:"—", close:"Close form",
-        success:"Thank you. Your registration has been prepared. The club will contact you once the form is connected to the club's system.",
+        sending:"Sending…", preview:"Preview details", previewHeading:"Please check your details", previewNote:"Go back and edit if anything is wrong. Nothing is sent until you confirm.", edit:"Edit details", confirm:"Confirm & submit", notGiven:"—", close:"Close form",
+        success:"Thank you. Your form has been sent to the club — we will contact you soon.", sendError:"Sorry, the form could not be sent. Please try again, or call the club.",
         required:"Please complete all required fields and accept the declaration."
       }
     },
     gallery: { title:"MOMENTS IN", titleAccent:"MOTION.", titleHtml:"MOMENTS <i>IN</i><br><i>MOTION.</i>", intro:"Dummy Bangladesh sports imagery is included for now. Later, simply replace the image URLs with your own club photos." },
     cta: { title:"BE PART OF", accent:"THE MOVEMENT.", body:"Play with purpose. Grow together. Serve the community.", contact:"Contact Club", contactAlt:"Send a message ✉" },
-    contact: { title:"TALK TO", accent:"THE CLUB.", titleHtml:"TALK <i>TO</i><br><i>THE</i> CLUB.", body:"For membership, events, sports activities, sponsorships or community initiatives, send us a message.", name:"Your name", email:"Email address", phone:"Phone number", message:"Your message", send:"Send message", success:"Thank you. Your message is ready to be connected to the club's email or backend when we add it." },
+    contact: { title:"TALK TO", accent:"THE CLUB.", titleHtml:"TALK <i>TO</i><br><i>THE</i> CLUB.", body:"For membership, events, sports activities, sponsorships or community initiatives, send us a message.", name:"Your name", email:"Email address", phone:"Phone number", message:"Your message", send:"Send message", success:"Thank you. Your message has been sent to the club — we will get back to you soon.", sendError:"Sorry, the message could not be sent. Please try again, or call the number above." },
     footer: { rights:"All rights reserved.", developed:"Developed by" }
   },
   bn: {
@@ -649,14 +649,14 @@ const content = {
         dob:"জন্ম তারিখ", present:"বর্তমান ঠিকানা", permanent:"স্থায়ী ঠিকানা", nid:"জাতীয় পরিচয়পত্র নম্বর",
         mobile:"মোবাইল নম্বর", email:"ইমেইল ঠিকানা",
         declaration:"আমি ঘোষণা করছি যে উপরের তথ্যগুলো সঠিক এবং আমি মোহামেডান স্পোর্টিং ক্লাব — ফরিদপুরের সকল নিয়ম-কানুন মেনে চলতে বাধ্য থাকব।",
-        preview:"তথ্য দেখে নিন", previewHeading:"আপনার তথ্যগুলো মিলিয়ে নিন", previewNote:"কিছু ভুল থাকলে ফিরে গিয়ে ঠিক করুন। নিশ্চিত না করা পর্যন্ত কিছুই পাঠানো হবে না।", edit:"তথ্য সংশোধন", confirm:"নিশ্চিত করে জমা দিন", notGiven:"—", close:"ফর্ম বন্ধ করুন",
-        success:"ধন্যবাদ। আপনার নিবন্ধন প্রস্তুত হয়েছে। ফর্মটি ক্লাবের সিস্টেমে সংযুক্ত হলে ক্লাব আপনার সাথে যোগাযোগ করবে।",
+        sending:"পাঠানো হচ্ছে…", preview:"তথ্য দেখে নিন", previewHeading:"আপনার তথ্যগুলো মিলিয়ে নিন", previewNote:"কিছু ভুল থাকলে ফিরে গিয়ে ঠিক করুন। নিশ্চিত না করা পর্যন্ত কিছুই পাঠানো হবে না।", edit:"তথ্য সংশোধন", confirm:"নিশ্চিত করে জমা দিন", notGiven:"—", close:"ফর্ম বন্ধ করুন",
+        success:"ধন্যবাদ। আপনার ফর্ম ক্লাবে পৌঁছেছে — শিগগিরই যোগাযোগ করা হবে।", sendError:"দুঃখিত, ফর্মটি পাঠানো যায়নি। আবার চেষ্টা করুন, বা ক্লাবে ফোন করুন।",
         required:"অনুগ্রহ করে সব আবশ্যক ঘর পূরণ করুন এবং ঘোষণায় সম্মতি দিন।"
       }
     },
     gallery: { title:"কিছু", titleAccent:"স্মরণীয় মুহূর্ত।", titleHtml:"<i>কিছু</i><br>স্মরণীয় মুহূর্ত।", intro:"এখন কিছু ডামি বাংলাদেশি স্পোর্টস ছবি রাখা হয়েছে। পরে ছবির URL বদলালেই আপনার ক্লাবের ছবি বসবে।" },
     cta: { title:"অগ্রগতির", accent:"অংশ হোন।", body:"উদ্দেশ্য নিয়ে খেলুন। একসাথে এগিয়ে যান। সমাজের পাশে থাকুন।", contact:"যোগাযোগ করুন", contactAlt:"বার্তা পাঠান ✉" },
-    contact: { title:"ক্লাবের সাথে", accent:"কথা বলুন।", titleHtml:"<i>ক্লাবের সাথে</i><br>কথা বলুন।", body:"সদস্যপদ, ইভেন্ট, খেলাধুলা, স্পনসরশিপ বা সামাজিক উদ্যোগ নিয়ে যোগাযোগ করতে আমাদের বার্তা পাঠান।", name:"আপনার নাম", email:"ইমেইল ঠিকানা", phone:"ফোন নম্বর", message:"আপনার বার্তা", send:"বার্তা পাঠান", success:"ধন্যবাদ। ক্লাবের ইমেইল বা ব্যাকএন্ড সংযুক্ত হলে এই ফর্মটি সরাসরি কাজ করবে।" },
+    contact: { title:"ক্লাবের সাথে", accent:"কথা বলুন।", titleHtml:"<i>ক্লাবের সাথে</i><br>কথা বলুন।", body:"সদস্যপদ, ইভেন্ট, খেলাধুলা, স্পনসরশিপ বা সামাজিক উদ্যোগ নিয়ে যোগাযোগ করতে আমাদের বার্তা পাঠান।", name:"আপনার নাম", email:"ইমেইল ঠিকানা", phone:"ফোন নম্বর", message:"আপনার বার্তা", send:"বার্তা পাঠান", success:"ধন্যবাদ। আপনার বার্তা ক্লাবে পৌঁছেছে — শিগগিরই যোগাযোগ করা হবে।", sendError:"দুঃখিত, বার্তাটি পাঠানো যায়নি। আবার চেষ্টা করুন, বা উপরের নম্বরে ফোন করুন।" },
     footer: { rights:"সর্বস্বত্ব সংরক্ষিত।", developed:"Developed by" }
   }
 };
@@ -887,16 +887,21 @@ function renderRegForm() {
 
 function toggleRegForm() {
   regOpen = !regOpen;
+  if (!regOpen) { regPhotoFile = null; regPhotoUrl = ''; regPhotoData = ''; }
   const wrap = document.getElementById('regWrap');
   wrap.classList.toggle('open', regOpen);
   if (regOpen) setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
 }
 
 let regPhotoData = '';
+let regPhotoFile = null;
+let regPhotoUrl = '';
 
 function previewRegPhoto(e) {
   const file = e.target.files && e.target.files[0];
   if (!file) return;
+  regPhotoFile = file;
+  regPhotoUrl = '';
   const box = document.getElementById('regPhotoBox');
   const reader = new FileReader();
   reader.onload = () => { regPhotoData = reader.result; box.innerHTML = `<img src="${reader.result}" alt="" />`; };
@@ -943,9 +948,51 @@ function regBackToEdit() {
   form.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function regConfirm() {
-  document.getElementById('regSuccess').style.display = 'block';
-  document.querySelector('.reg-prev-actions').style.display = 'none';
+async function regConfirm() {
+  const f = content[lang].events.form;
+  const note = document.getElementById('regSuccess');
+  const actions = document.querySelector('.reg-prev-actions');
+  const btn = actions.querySelector('.committee-cta');
+  const form = document.querySelector('.reg-form');
+  const d = new FormData(form);
+  const g = (k) => (d.get(k) || '').toString().trim() || '-';
+
+  btn.disabled = true;
+  btn.style.opacity = '.6';
+  const btnLabel = btn.querySelector('span');
+  const originalLabel = btnLabel.textContent;
+  btnLabel.textContent = f.sending;
+  try {
+    let photoLink = '';
+    try { photoLink = await uploadRegPhoto(); } catch (err) { photoLink = ''; }
+    await sendToWeb3Forms({
+      photo: photoLink || (regPhotoFile ? 'Photo upload failed — ask the applicant to send it separately.' : 'No photo uploaded.'),
+      subject: 'Membership / participation form — ' + g('name'),
+      from_name: 'Mohammedan SC Faridpur website',
+      name: g('name'),
+      date_of_birth: g('dob'),
+      fathers_name: g('father'),
+      mothers_name: g('mother'),
+      spouse_name: g('spouse'),
+      nid_number: g('nid'),
+      mobile: g('mobile'),
+      email: g('email'),
+      present_address: g('present'),
+      permanent_address: g('permanent'),
+      declaration_accepted: 'Yes'
+    });
+    note.textContent = f.success;
+    note.style.color = '';
+    note.style.display = 'block';
+    actions.style.display = 'none';
+  } catch (err) {
+    note.textContent = f.sendError;
+    note.style.color = '#c0392b';
+    note.style.display = 'block';
+    btn.disabled = false;
+    btn.style.opacity = '';
+    btnLabel.textContent = originalLabel;
+  }
 }
 
 // ===== COMMITTEE (leaders) =====
@@ -1015,11 +1062,67 @@ function toggleFullCommittee() {
   if (fullOpen) setTimeout(() => rest.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
 }
 
+// ===== PHOTO UPLOAD (imgbb) =====
+const IMGBB_KEY = 'c88683bab4995785149f54a679ce8e45';
+
+async function uploadRegPhoto() {
+  if (!regPhotoFile) return '';
+  if (regPhotoUrl) return regPhotoUrl;
+  const body = new FormData();
+  body.append('image', regPhotoFile);
+  const res = await fetch('https://api.imgbb.com/1/upload?key=' + IMGBB_KEY, { method: 'POST', body });
+  const data = await res.json();
+  if (!data.success) throw new Error('photo upload failed');
+  regPhotoUrl = data.data.url;
+  return regPhotoUrl;
+}
+
+// ===== FORM SENDING (Web3Forms) =====
+const WEB3FORMS_KEY = 'b14cd635-c299-4123-8451-14c717e970dc';
+
+async function sendToWeb3Forms(payload) {
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({ access_key: WEB3FORMS_KEY, ...payload })
+  });
+  const data = await res.json();
+  if (!data.success) throw new Error(data.message || 'send failed');
+  return data;
+}
+
 // ===== FORM =====
-function submitForm(e) {
+async function submitForm(e) {
   e.preventDefault();
-  document.getElementById('formSuccess').style.display = 'block';
-  e.currentTarget.reset();
+  const form = e.currentTarget;
+  const btn = form.querySelector('button[type=submit]');
+  const note = document.getElementById('formSuccess');
+  const d = new FormData(form);
+  const t = content[lang];
+
+  btn.disabled = true;
+  btn.style.opacity = '.6';
+  try {
+    await sendToWeb3Forms({
+      subject: 'Website contact — ' + (d.get('name') || ''),
+      from_name: 'Mohammedan SC Faridpur website',
+      name: d.get('name'),
+      email: d.get('email'),
+      phone: d.get('phone') || '-',
+      message: d.get('message')
+    });
+    note.textContent = t.contact.success;
+    note.style.color = '';
+    note.style.display = 'block';
+    form.reset();
+  } catch (err) {
+    note.textContent = t.contact.sendError;
+    note.style.color = '#c0392b';
+    note.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btn.style.opacity = '';
+  }
 }
 
 // ===== SCROLL REVEAL =====
@@ -1146,7 +1249,8 @@ function renderAll() {
   document.getElementById('contactPhoneLabel').firstChild.textContent = t.contact.phone;
   document.getElementById('contactMsgLabel').firstChild.textContent = t.contact.message;
   document.getElementById('contactSend').textContent = t.contact.send;
-  document.getElementById('formSuccess').textContent = t.contact.success;
+  const fs = document.getElementById('formSuccess');
+  if (fs.style.display !== 'block') fs.textContent = t.contact.success;
 
   // Footer
   document.getElementById('footerRights').textContent = t.footer.rights;
