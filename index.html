@@ -789,7 +789,7 @@ function renderSports() {
 // Sheet columns (first row must be exactly these headers):
 //   id | name_en | name_bn | photo
 // photo = a file name inside members/  (e.g. MSC-018.jpg) or a full https link. Leave blank for initials.
-const MEMBERS_SHEET_CSV = '';
+const MEMBERS_SHEET_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQScHbVQ4Cahw_lwmXsrjJ-tQX6WJDXt07CrletOe6M7ToFSDK5kFFoyn7Q0ZwOv73SntjBDWZFpITD/pub?gid=0&single=true&output=csv';
 
 let membersOpen = false;
 let sheetMembers = [];
@@ -815,24 +815,34 @@ function parseCsv(text) {
 async function loadSheetMembers() {
   if (!MEMBERS_SHEET_CSV) return;
   try {
-    const res = await fetch(MEMBERS_SHEET_CSV, { cache: 'no-store' });
-    const rows = parseCsv(await res.text()).filter(r => r.some(c => c.trim()));
+    const url = MEMBERS_SHEET_CSV + (MEMBERS_SHEET_CSV.includes('?') ? '&' : '?') + 't=' + Date.now();
+    const res = await fetch(url, { cache: 'no-store' });
+    let text = await res.text();
+    if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);   // strip Google's BOM
+    const rows = parseCsv(text).filter(r => r.some(c => c.trim()));
     if (rows.length < 2) return;
-    const head = rows[0].map(h => h.trim().toLowerCase());
-    const col = (n) => head.indexOf(n);
+
+    const head = rows[0].map(h => h.replace(/^\uFEFF/, '').trim().toLowerCase());
+    const idx = (name, fallback) => {
+      const i = head.indexOf(name);
+      return i === -1 ? fallback : i;
+    };
+    const cId = idx('id', 0), cEn = idx('name_en', 1), cBn = idx('name_bn', 2), cPh = idx('photo', 3);
+
     sheetMembers = rows.slice(1).map(r => {
-      const id = (r[col('id')] || '').trim();
-      const en = (r[col('name_en')] || '').trim();
-      const bn = (r[col('name_bn')] || '').trim();
-      const photo = (r[col('photo')] || '').trim();
+      const id = (r[cId] || '').trim();
+      const en = (r[cEn] || '').trim();
+      const bn = (r[cBn] || '').trim();
+      const photo = (r[cPh] || '').trim();
       if (!id || !(en || bn)) return null;
       const m = { id, name: { en: en || bn, bn: bn || en } };
       if (photo) m.image = /^https?:/i.test(photo) ? photo : 'members/' + photo;
       return m;
     }).filter(Boolean);
+
     if (membersOpen) renderMembers('');
   } catch (err) {
-    // sheet unreachable — the built-in list still shows
+    console.warn('Member sheet could not be loaded:', err);
   }
 }
 
@@ -888,7 +898,7 @@ function applyMembership() {
 function toggleMembers() {
   membersOpen = !membersOpen;
   const wrap = document.getElementById('membersWrap');
-  if (membersOpen) renderMembers('');
+  if (membersOpen) { renderMembers(''); loadSheetMembers(); }
   wrap.classList.toggle('open', membersOpen);
   setTimeout(initReveal, 40);
   document.getElementById('membersArrow').textContent = membersOpen ? '↑' : '↓';
