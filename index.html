@@ -815,30 +815,45 @@ function parseCsv(text) {
 async function loadSheetMembers() {
   if (!MEMBERS_SHEET_CSV) return;
   try {
-    const url = MEMBERS_SHEET_CSV + (MEMBERS_SHEET_CSV.includes('?') ? '&' : '?') + 't=' + Date.now();
-    const res = await fetch(url, { cache: 'no-store' });
+    const res = await fetch(MEMBERS_SHEET_CSV, { cache: 'no-store' });
+    if (!res.ok) return;
+
+    // Google sometimes answers with an HTML page instead of the CSV.
+    const type = res.headers.get('content-type') || '';
+    if (type.includes('text/html')) return;
+
     let text = await res.text();
-    if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);   // strip Google's BOM
+    if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);       // strip BOM
+    if (/^\s*[<{]/.test(text)) return;                             // HTML or JSON, not CSV
+
     const rows = parseCsv(text).filter(r => r.some(c => c.trim()));
     if (rows.length < 2) return;
 
+    // The header row must actually be ours. No guessing by position —
+    // that is how an error page once ended up rendered as members.
     const head = rows[0].map(h => h.replace(/^\uFEFF/, '').trim().toLowerCase());
-    const idx = (name, fallback) => {
-      const i = head.indexOf(name);
-      return i === -1 ? fallback : i;
-    };
-    const cId = idx('id', 0), cEn = idx('name_en', 1), cBn = idx('name_bn', 2), cPh = idx('photo', 3);
+    const cId = head.indexOf('id'), cEn = head.indexOf('name_en'),
+          cBn = head.indexOf('name_bn'), cPh = head.indexOf('photo');
+    if (cId === -1 || (cEn === -1 && cBn === -1)) return;
+
+    const clean = (v) => (v || '').toString().trim();
+    const looksSane = (m) =>
+      /^[A-Za-z0-9][A-Za-z0-9 _-]{0,19}$/.test(m.id) &&
+      m.name.en.length <= 60 && m.name.bn.length <= 60 &&
+      !/[<>{}]|function|window\.|document\./i.test(m.name.en + m.name.bn);
 
     sheetMembers = rows.slice(1).map(r => {
-      const id = (r[cId] || '').trim();
-      const en = (r[cEn] || '').trim();
-      const bn = (r[cBn] || '').trim();
-      const photo = (r[cPh] || '').trim();
+      const id = clean(r[cId]);
+      const en = cEn === -1 ? '' : clean(r[cEn]);
+      const bn = cBn === -1 ? '' : clean(r[cBn]);
+      const photo = cPh === -1 ? '' : clean(r[cPh]);
       if (!id || !(en || bn)) return null;
       const m = { id, name: { en: en || bn, bn: bn || en } };
-      if (photo) m.image = /^https?:/i.test(photo) ? photo : 'members/' + photo;
+      if (photo && !/[<>{}\s]/.test(photo)) {
+        m.image = /^https?:/i.test(photo) ? photo : 'members/' + photo;
+      }
       return m;
-    }).filter(Boolean);
+    }).filter(m => m && looksSane(m));
 
     if (membersOpen) renderMembers('');
   } catch (err) {
