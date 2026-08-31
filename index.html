@@ -38,10 +38,10 @@ button{cursor:pointer}
 .lang-ico .swaphead{fill:#fff}
 /* Bengali matras need more room than the tight Latin line-height */
 /* Bengali matras and conjuncts need more vertical room than the tight Latin settings */
-[data-lang="bn"] .hero h1{font-size:clamp(20px,calc(5.6vw - 20px),66px);line-height:1.22;padding-top:.06em}
+[data-lang="bn"] .hero h1{font-size:clamp(30px,5.6vw,66px);line-height:1.22;padding-top:.06em}
 [data-lang="bn"] .hero h1 b,[data-lang="bn"] .hero h1 span,[data-lang="bn"] .hero h1 em{line-height:1.22;overflow:visible}
-[data-lang="bn"] .hero h1 span{font-size:calc(1em - 26px);margin-top:2px}
-[data-lang="bn"] .hero h1 em{font-size:calc(1em - 20px);margin-top:2px}
+[data-lang="bn"] .hero h1 span{font-size:.52em;margin-top:2px}
+[data-lang="bn"] .hero h1 em{font-size:.64em;margin-top:2px}
 [data-lang="bn"] .hero-title-block{margin-top:40px}
 [data-lang="bn"] .hero-sub{margin-top:45px}
 [data-lang="bn"] .brand strong{line-height:1.4}
@@ -155,6 +155,10 @@ button{cursor:pointer}
 .section-heading.wide h2 i{display:inline}
 .light h2{color:#fff}
 .dark-section{background:var(--black);color:#fff}
+/* Scroll reveal — .reveal is added by JS only, so content stays visible if JS fails */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* ===== ABOUT ===== */
 .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:7vw;align-items:start;margin-top:-45px}
@@ -356,7 +360,7 @@ button{cursor:pointer}
 /* ===== RESPONSIVE ===== */
 @media(max-width:1100px){.about-tabs{margin-top:-120px}.sports-grid{grid-template-columns:1fr 1fr}.footer{grid-template-columns:1fr 1fr}.developer{justify-self:end}.hero-main-row{grid-template-columns:170px minmax(0,1fr);gap:28px}.nav-links{gap:16px}}
 @media(max-width:900px){.nav-links{position:absolute;top:88px;left:0;right:0;background:#080808;padding:25px 7vw;display:none;flex-direction:column;border-bottom:1px solid #222}.nav-links.open{display:flex}.nav-links button{text-align:left;padding:10px 0}.menu-btn{display:block}.about-grid,.contact-grid{grid-template-columns:1fr}.about-tabs{margin-top:0}.leaders{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr}.gallery-4,.gallery-7{grid-column:span 2}.contact-grid{gap:50px}.hero-gov-panel{display:none}.hero-main-row{grid-template-columns:140px minmax(0,1fr);gap:22px}}
-@media(max-width:650px){.nav{height:74px;padding:0 5vw}.brand img{width:45px;height:45px}.brand strong{font-size:12px}.brand span{font-size:8px}.hero{padding:105px 5vw 70px}.hero-main-row{grid-template-columns:1fr;gap:18px}.hero-logo-wrap{align-items:flex-start;flex-direction:row;gap:14px}.hero-logo-large{width:82px;margin-left:0;margin-top:0}.hero-title-block{transform:none}.hero h1{font-size:clamp(46px,14vw,72px);margin-left:0}.hero-kicker{margin-left:0}.hero-sub{font-size:13px;margin-top:40px;margin-left:0}.hero-buttons{margin-left:0}.sports-grid,.leaders,.event-guide{grid-template-columns:1fr}#sportsTitle{white-space:normal;font-size:clamp(38px,11vw,62px)}.section-heading.below h2{white-space:normal;font-size:clamp(34px,9vw,54px);line-height:.9}.about-tab{grid-template-columns:35px 1fr 18px}.form-two,.reg-grid,.reg-prev-list{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gallery-1{grid-row:span 2}.gallery-4,.gallery-7{grid-column:span 2}.footer{grid-template-columns:1fr}.developer{justify-self:start}.socials a span{display:none}.socials a{width:38px;height:38px;justify-content:center}.contact-form{padding:20px}}
+@media(max-width:650px){.nav{height:74px;padding:0 5vw}.brand img{width:45px;height:45px}.brand strong{font-size:12px}.brand span{font-size:8px}.hero{padding:105px 5vw 70px}.hero-main-row{grid-template-columns:1fr;gap:18px}.hero-logo-wrap{align-items:flex-start;flex-direction:row;gap:14px}.hero-logo-large{width:82px;margin-left:0;margin-top:0}.hero-title-block{transform:none}.hero h1{font-size:clamp(30px,8.6vw,52px);line-height:1;margin-left:0}.hero h1 span{font-size:.4em;white-space:normal;margin-top:8px}.hero h1 em{font-size:.54em;margin-top:8px}[data-lang="bn"] .hero h1{font-size:clamp(28px,8vw,48px)}[data-lang="bn"] .hero h1 span{font-size:.52em}[data-lang="bn"] .hero h1 em{font-size:.64em}.hero-kicker{margin-left:0}.hero-sub{font-size:13px;margin-top:40px;margin-left:0}.hero-buttons{margin-left:0}.sports-grid,.leaders,.event-guide{grid-template-columns:1fr}#sportsTitle{white-space:normal;font-size:clamp(38px,11vw,62px)}.section-heading.below h2{white-space:normal;font-size:clamp(34px,9vw,54px);line-height:.9}.about-tab{grid-template-columns:35px 1fr 18px}.form-two,.reg-grid,.reg-prev-list{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gallery-1{grid-row:span 2}.gallery-4,.gallery-7{grid-column:span 2}.footer{grid-template-columns:1fr}.developer{justify-self:start}.socials a span{display:none}.socials a{width:38px;height:38px;justify-content:center}.contact-form{padding:20px}}
 </style>
 </head>
 <body>
@@ -833,6 +837,7 @@ function toggleMembers() {
   const wrap = document.getElementById('membersWrap');
   if (membersOpen) renderMembers('');
   wrap.classList.toggle('open', membersOpen);
+  setTimeout(initReveal, 40);
   document.getElementById('membersArrow').textContent = membersOpen ? '↑' : '↓';
   document.getElementById('membersLabel').textContent = membersOpen
     ? content[lang].committee.membersHide : content[lang].committee.members;
@@ -1003,6 +1008,7 @@ function toggleFullCommittee() {
   const rest = document.getElementById('committeeRest');
   if (fullOpen) renderRest();
   rest.classList.toggle('open', fullOpen);
+  setTimeout(initReveal, 40);
   document.getElementById('viewAllArrow').textContent = fullOpen ? '↑' : '↓';
   document.getElementById('viewAllLabel').textContent = fullOpen ? content[lang].committee.hideAll : content[lang].committee.viewAll;
   if (fullOpen) setTimeout(() => rest.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
@@ -1013,6 +1019,34 @@ function submitForm(e) {
   e.preventDefault();
   document.getElementById('formSuccess').style.display = 'block';
   e.currentTarget.reset();
+}
+
+// ===== SCROLL REVEAL =====
+const revealSelector = '.sport-card, .person-card, .event-guide > div, .about-tab, .gallery-item';
+let revealObserver = null;
+
+function initReveal() {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (!entry.isIntersecting) return;
+        setTimeout(() => entry.target.classList.add('in'), Math.min(i, 5) * 70);
+        revealObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
+  }
+
+  document.querySelectorAll(revealSelector).forEach(el => {
+    if (el.dataset.revealed) return;
+    el.dataset.revealed = '1';
+    const box = el.getBoundingClientRect();
+    if (box.top < window.innerHeight) { el.classList.add('reveal', 'in'); return; }
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
 }
 
 // ===== RENDER ALL (language switch) =====
@@ -1121,6 +1155,8 @@ function renderAll() {
 // ===== INIT =====
 renderGallery();
 renderAll();
+setTimeout(initReveal, 60);
+window.addEventListener('load', initReveal);
 </script>
 </body>
 </html>
