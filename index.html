@@ -30,6 +30,9 @@ button{cursor:pointer}
 .nav-links button:hover::after{right:0}
 .nav-actions{display:flex;align-items:center;gap:12px}
 .language{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);padding:0 14px;min-width:70px;height:42px;justify-content:center;background:rgba(255,255,255,.045);color:#fff;text-transform:none;letter-spacing:0;font-size:15px;font-weight:700;cursor:pointer;transition:.3s ease}
+.nav-fb{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.045);color:#fff;text-decoration:none;transition:.3s ease}
+.nav-fb svg{width:20px;height:20px;fill:currentColor}
+.nav-fb:hover{background:#1877F2;border-color:#1877F2;transform:translateY(-2px);box-shadow:0 10px 30px rgba(24,119,242,.25)}
 .lang-ico{width:24px;height:24px;flex:none;overflow:visible}
 .lang-ico .tile{fill:#fff}
 .lang-ico .tile.front{stroke:#0c0c0c;stroke-width:1.5}
@@ -342,18 +345,21 @@ button{cursor:pointer}
 .form-success{font-size:11px;color:#47723a;line-height:1.6;margin:16px 0 0}
 
 /* ===== FOOTER ===== */
-.footer{background:#080808;color:#777;border-top:1px solid #222;padding:28px 7vw;display:grid;grid-template-columns:1.1fr 1.4fr auto auto;align-items:center;gap:25px;font-size:9px}
+.footer{background:#080808;color:#777;border-top:1px solid #222;padding:28px 7vw;display:grid;grid-template-columns:1.1fr 1.6fr auto;align-items:center;gap:25px;font-size:9px}
+.footer > p{font-size:13px;font-weight:700;color:#ccc;margin:0;line-height:1.6}
 .footer strong,.footer .footer-sub{display:block;letter-spacing:.12em}
 .footer strong{color:#ddd}
 .footer .footer-sub{margin-top:4px}
 .footer p{margin:0}
-.socials{display:flex;gap:8px;flex-wrap:wrap}
-.socials a{display:flex;align-items:center;gap:6px;color:#fff;text-decoration:none;padding:9px 10px;font-size:8px;letter-spacing:.08em;text-transform:uppercase}
 .facebook{background:#1877f2}
 .youtube{background:#ff0033}
 .tiktok{background:#111;border:1px solid #444}
 .instagram{background:linear-gradient(135deg,#7b2cff,#ff2f7d,#ffb02e)}
-.developer{color:#777;text-decoration:none;display:flex;gap:6px;align-items:center;white-space:nowrap}
+.developer{color:#999;font-size:12px;font-weight:600;text-decoration:none;display:flex;gap:7px;align-items:center;white-space:nowrap;transition:color .25s}
+.developer:hover{color:#fff}
+.developer .gv{font-size:14px;font-weight:800;letter-spacing:-.01em}
+.developer .gv .gv-a{color:#5eead4}
+.developer .gv .gv-b{color:#fff}
 .developer b{color:#ddd}
 
 /* ===== MODAL ===== */
@@ -361,7 +367,7 @@ button{cursor:pointer}
 /* ===== RESPONSIVE ===== */
 @media(max-width:1100px){.about-tabs{margin-top:-120px}.sports-grid{grid-template-columns:1fr 1fr}.footer{grid-template-columns:1fr 1fr}.developer{justify-self:end}.hero-main-row{grid-template-columns:170px minmax(0,1fr);gap:28px}.nav-links{gap:16px}}
 @media(max-width:900px){.nav-links{position:absolute;top:88px;left:0;right:0;background:#080808;padding:25px 7vw;display:none;flex-direction:column;border-bottom:1px solid #222}.nav-links.open{display:flex}.nav-links button{text-align:left;padding:10px 0}.menu-btn{display:block}.about-grid,.contact-grid{grid-template-columns:1fr}.about-tabs{margin-top:0}.leaders{grid-template-columns:1fr 1fr}.gallery-grid{grid-template-columns:1fr 1fr}.gallery-4,.gallery-7{grid-column:span 2}.contact-grid{gap:50px}.hero-gov-panel{display:none}.hero-main-row{grid-template-columns:140px minmax(0,1fr);gap:22px}}
-@media(max-width:650px){.nav{height:74px;padding:0 5vw}.brand img{width:45px;height:45px}.brand strong{font-size:12px}.brand span{font-size:8px}.hero{padding:105px 5vw 70px}.hero-main-row{grid-template-columns:1fr;gap:18px}.hero-logo-wrap{align-items:flex-start;flex-direction:row;gap:14px}.hero-logo-large{width:82px;margin-left:0;margin-top:0}.hero-title-block{transform:none}.hero h1{font-size:clamp(30px,8.6vw,52px);line-height:1;margin-left:0}.hero h1 span{font-size:.4em;white-space:normal;margin-top:8px}.hero h1 em{font-size:.54em;margin-top:8px}[data-lang="bn"] .hero h1{font-size:clamp(28px,8vw,48px)}[data-lang="bn"] .hero h1 span{font-size:.52em}[data-lang="bn"] .hero h1 em{font-size:.64em}.hero-kicker{margin-left:0}.hero-sub{font-size:13px;margin-top:40px;margin-left:0}.hero-buttons{margin-left:0}.sports-grid,.leaders,.event-guide{grid-template-columns:1fr}#sportsTitle{white-space:normal;font-size:clamp(38px,11vw,62px)}.section-heading.below h2{white-space:normal;font-size:clamp(34px,9vw,54px);line-height:.9}.about-tab{grid-template-columns:35px 1fr 18px}.form-two,.reg-grid,.reg-prev-list{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gallery-1{grid-row:span 2}.gallery-4,.gallery-7{grid-column:span 2}.footer{grid-template-columns:1fr}.developer{justify-self:start}.socials a span{display:none}.socials a{width:38px;height:38px;justify-content:center}.contact-form{padding:20px}}
+@media(max-width:650px){.nav{height:74px;padding:0 5vw}.brand img{width:45px;height:45px}.brand strong{font-size:12px}.brand span{font-size:8px}.hero{padding:95px 5vw 60px;min-height:auto}.hero-main-row{grid-template-columns:1fr;gap:6px}.hero-title-block{margin-top:6px}[data-lang="bn"] .hero-title-block{margin-top:6px}.hero-kicker{margin-bottom:14px;margin-top:0}.hero-logo-wrap{align-items:flex-start;flex-direction:row;gap:14px}.hero-logo-large{width:82px;margin-left:0;margin-top:0}.hero-title-block{transform:none}.hero h1{font-size:clamp(30px,8.6vw,52px);line-height:1;margin-left:0}.hero h1 span{font-size:.4em;white-space:normal;margin-top:8px}.hero h1 em{font-size:.54em;margin-top:8px}[data-lang="bn"] .hero h1{font-size:clamp(28px,8vw,48px)}[data-lang="bn"] .hero h1 span{font-size:.52em}[data-lang="bn"] .hero h1 em{font-size:.64em}.hero-kicker{margin-left:0}.hero-sub{font-size:14px;margin-top:26px;margin-bottom:22px;margin-left:0}[data-lang="bn"] .hero-sub{margin-top:26px}.hero-buttons{margin-left:0}.sports-grid,.leaders,.event-guide{grid-template-columns:1fr}#sportsTitle{white-space:normal;font-size:clamp(38px,11vw,62px)}.section-heading.below h2{white-space:normal;font-size:clamp(34px,9vw,54px);line-height:.9}.about-tab{grid-template-columns:35px 1fr 18px}.form-two,.reg-grid,.reg-prev-list{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gallery-1{grid-row:span 2}.gallery-4,.gallery-7{grid-column:span 2}.footer{grid-template-columns:1fr}.developer{justify-self:start}.contact-form{padding:20px}}
 </style>
 </head>
 <body>
@@ -384,6 +390,7 @@ button{cursor:pointer}
   </nav>
   <div class="nav-actions">
     <button class="language" onclick="toggleLang()" id="langBtn" title="Switch language"><svg class="lang-ico" viewBox="0 0 26 26" aria-hidden="true"><rect class="tile" x="5" y="0.5" width="12.5" height="12.5" rx="3.6"/><text class="glyph" x="11.25" y="9.4" text-anchor="middle">文</text><rect class="tile front" x="12.5" y="8" width="12.5" height="12.5" rx="3.6"/><text class="glyph" x="18.75" y="16.9" text-anchor="middle">A</text><path class="swap" d="M9.2 22.6C5.9 22.1 3.4 19.6 2.9 16.3"/><path class="swaphead" d="M2.9 14.6 4.6 17.4 1.2 17.4Z"/><path class="swap" d="M2.6 18.6C3.4 21.6 5.8 23.9 8.9 24.5"/><path class="swaphead" d="M10.6 24.7 7.9 26.2 7.9 22.9Z"/></svg><span id="langLabel">বা</span></button>
+    <a class="nav-fb" href="#" target="_blank" rel="noreferrer" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.93 8.44-9.94z"/></svg></a>
     <button class="menu-btn" onclick="toggleMenu()" id="menuBtn">☰</button>
   </div>
 </header>
@@ -535,13 +542,7 @@ R.PH. Group</span></div></div>
 <footer class="footer">
   <div><strong>MOHAMMEDAN SPORTING CLUB</strong><span class="footer-sub">FARIDPUR DIVISION</span></div>
   <p>© 2026 Mohammedan Sporting Club — Faridpur. <span id="footerRights">All rights reserved.</span></p>
-  <div class="socials">
-    <a class="facebook" href="#" title="Facebook — add official link later">f <span>Facebook</span></a>
-    <a class="youtube" href="#" title="YouTube — add official link later">▶ <span>YouTube</span></a>
-    <a class="tiktok" href="#" title="TikTok — add official link later">♪ <span>TikTok</span></a>
-    <a class="instagram" href="#" title="Instagram — add official link later">◉ <span>Instagram</span></a>
-  </div>
-  <a class="developer" href="https://www.gravalley.com" target="_blank" rel="noreferrer"><span id="footerDev">Developed by</span> <b>gravalley.com</b> ↗</a>
+  <a class="developer" href="https://www.gravalley.com" target="_blank" rel="noreferrer"><span id="footerDev">Developed by</span> <b class="gv"><span class="gv-a">grav</span><span class="gv-b">alley</span><span class="gv-a">.com</span></b> ↗</a>
 </footer>
 
 <script>
