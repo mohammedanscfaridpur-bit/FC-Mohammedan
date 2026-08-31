@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Member admin — Mohammedan SC Faridpur</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{--paper:#f4f4f0;--ink:#111;--line:#d6d6d0;--green2:#3d8f32;font-family:Inter,'Noto Sans Bengali',sans-serif;color:var(--ink);background:var(--paper)}
+*{box-sizing:border-box}
+body{margin:0;padding:40px 5vw 80px;max-width:1000px;margin:0 auto}
+h1{font-size:clamp(26px,4vw,42px);font-weight:900;letter-spacing:-.02em;margin:0}
+.sub{color:#555;font-size:14px;margin:8px 0 34px}
+.card{border:1px solid var(--line);background:#fff;padding:26px;margin-bottom:22px}
+label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#333;font-weight:600;margin-bottom:18px}
+input,select{width:100%;margin-top:8px;border:0;border-bottom:1px solid #ccc;background:transparent;font-family:inherit;font-size:16px;padding:10px 0;outline:0;color:#111}
+input:focus{border-bottom-color:#111}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+button{border:1px solid #111;background:transparent;color:#111;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:0 22px;min-height:50px;cursor:pointer;transition:background .25s,color .25s}
+button:hover{background:#111;color:#fff}
+button:disabled{opacity:.5;cursor:default}
+button.ghost{border-color:#bbb;color:#666;min-height:38px;padding:0 14px;font-size:10px}
+button.ghost:hover{background:#c0392b;border-color:#c0392b;color:#fff}
+.photo-row{display:flex;gap:18px;align-items:center;margin-bottom:20px}
+.photo-box{width:86px;height:100px;flex:none;border:1px dashed #bbb;display:grid;place-items:center;overflow:hidden;background:#fafafa;color:#bbb;font-size:26px}
+.photo-box img{width:100%;height:100%;object-fit:cover}
+.msg{margin:16px 0 0;font-size:14px;line-height:1.6;display:none}
+.msg.ok{color:var(--green2);display:block}
+.msg.bad{color:#c0392b;display:block}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#888;padding:0 10px 12px 0;border-bottom:1px solid var(--line)}
+td{padding:12px 10px 12px 0;border-bottom:1px solid #eee;vertical-align:middle}
+td img{width:38px;height:44px;object-fit:cover;border:1px solid #ddd;display:block}
+.gate{max-width:420px}
+.hint{color:#777;font-size:12px;line-height:1.6;margin:10px 0 0}
+.note{background:#fffbe6;border:1px solid #f0e2a8;padding:14px 16px;font-size:13px;line-height:1.6;color:#5a4a1a;margin-bottom:26px}
+</style>
+</head>
+<body>
+
+<h1>Member admin</h1>
+<p class="sub">Mohammedan Sporting Club — Faridpur</p>
+
+<!-- password gate -->
+<div class="card gate" id="gate">
+  <label>Admin password
+    <input type="password" id="pw" autocomplete="current-password" />
+  </label>
+  <button onclick="unlock()">Unlock</button>
+  <p class="msg" id="gateMsg"></p>
+</div>
+
+<!-- main panel -->
+<div id="panel" style="display:none">
+
+  <div class="note">
+    This page writes straight into the member sheet. New members appear on the website within a few minutes.
+  </div>
+
+  <div class="card">
+    <h2 style="margin:0 0 22px;font-size:19px">Add a member</h2>
+
+    <div class="photo-row">
+      <div class="photo-box" id="photoBox"><span>+</span></div>
+      <label style="margin:0">Photo (optional)
+        <input type="file" accept="image/*" id="photo" onchange="previewPhoto(event)" />
+      </label>
+    </div>
+
+    <div class="row">
+      <label>Name (English)<input id="nameEn" /></label>
+      <label>Name (Bengali)<input id="nameBn" /></label>
+    </div>
+    <label>Member ID <span style="text-transform:none;letter-spacing:0;font-weight:400;color:#888">— leave blank to number automatically</span>
+      <input id="memberId" placeholder="MSC-020" />
+    </label>
+
+    <button id="addBtn" onclick="addMember()">Add member</button>
+    <p class="msg" id="addMsg"></p>
+  </div>
+
+  <div class="card">
+    <h2 style="margin:0 0 6px;font-size:19px">Members in the sheet</h2>
+    <p class="hint" style="margin:0 0 18px">The 17 committee members are built into the website and are not listed here.</p>
+    <div id="listWrap">Loading…</div>
+  </div>
+
+</div>
+
+<script>
+// ==== SETTINGS ==============================================
+// Paste the Apps Script web app URL here (it ends in /exec)
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx0X6qy41CE8iEQbeZP6fnnmmzKu-c3IPg7iGGmjtK3H9W8eQVxOqLpM-5UjTcoYI0Z/exec';
+const IMGBB_KEY  = 'c88683bab4995785149f54a679ce8e45';
+// ============================================================
+
+let password = '';
+let photoFile = null;
+
+function unlock() {
+  password = document.getElementById('pw').value;
+  if (!password) return;
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('panel').style.display = 'block';
+  loadList();
+}
+
+async function call(payload) {
+  if (!SCRIPT_URL) throw new Error('SCRIPT_URL is not set in admin.html');
+  const res = await fetch(SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify({ password, ...payload })
+  });
+  const data = await res.json();
+  if (!data.ok) throw new Error(data.error || 'Request failed');
+  return data;
+}
+
+function previewPhoto(e) {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  photoFile = file;
+  const reader = new FileReader();
+  reader.onload = () => { document.getElementById('photoBox').innerHTML = '<img src="' + reader.result + '" alt="" />'; };
+  reader.readAsDataURL(file);
+}
+
+async function uploadPhoto() {
+  if (!photoFile) return '';
+  const body = new FormData();
+  body.append('image', photoFile);
+  const res = await fetch('https://api.imgbb.com/1/upload?key=' + IMGBB_KEY, { method: 'POST', body });
+  const data = await res.json();
+  if (!data.success) throw new Error('Photo upload failed');
+  return data.data.url;
+}
+
+function show(id, text, ok) {
+  const el = document.getElementById(id);
+  el.textContent = text;
+  el.className = 'msg ' + (ok ? 'ok' : 'bad');
+}
+
+async function addMember() {
+  const btn = document.getElementById('addBtn');
+  const name_en = document.getElementById('nameEn').value.trim();
+  const name_bn = document.getElementById('nameBn').value.trim();
+  const id = document.getElementById('memberId').value.trim();
+
+  if (!name_en && !name_bn) return show('addMsg', 'Please enter the name in at least one language.', false);
+
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+  try {
+    const photo = await uploadPhoto();
+    const r = await call({ action: 'add', id, name_en, name_bn, photo });
+    show('addMsg', 'Added as ' + r.id + '. It will show on the website within a few minutes.', true);
+    document.getElementById('nameEn').value = '';
+    document.getElementById('nameBn').value = '';
+    document.getElementById('memberId').value = '';
+    document.getElementById('photo').value = '';
+    document.getElementById('photoBox').innerHTML = '<span>+</span>';
+    photoFile = null;
+    loadList();
+  } catch (err) {
+    show('addMsg', 'Could not save: ' + err.message, false);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Add member';
+  }
+}
+
+async function removeMember(id) {
+  if (!confirm('Remove ' + id + ' from the member list?')) return;
+  try {
+    await call({ action: 'delete', id });
+    loadList();
+  } catch (err) {
+    alert('Could not remove: ' + err.message);
+  }
+}
+
+async function loadList() {
+  const wrap = document.getElementById('listWrap');
+  try {
+    const r = await call({ action: 'list' });
+    const rows = r.rows.slice(1).filter(x => String(x[0]).trim());
+    if (!rows.length) { wrap.innerHTML = '<p class="hint" style="margin:0">No members added through this page yet.</p>'; return; }
+    wrap.innerHTML = '<table><thead><tr><th></th><th>ID</th><th>Name</th><th></th></tr></thead><tbody>' +
+      rows.map(x => {
+        const id = String(x[0]).trim(), en = String(x[1] || '').trim(), bn = String(x[2] || '').trim(), ph = String(x[3] || '').trim();
+        const src = ph ? (/^https?:/i.test(ph) ? ph : 'members/' + ph) : '';
+        return '<tr><td>' + (src ? '<img src="' + src + '" alt="" />' : '') + '</td>' +
+               '<td>' + id + '</td>' +
+               '<td>' + (en || '') + (bn ? '<br><span style="color:#777">' + bn + '</span>' : '') + '</td>' +
+               '<td style="text-align:right"><button class="ghost" onclick="removeMember(\'' + id + '\')">Remove</button></td></tr>';
+      }).join('') + '</tbody></table>';
+  } catch (err) {
+    wrap.innerHTML = '<p class="msg bad" style="display:block;margin:0">Could not load the list: ' + err.message + '</p>';
+  }
+}
+
+document.getElementById('pw').addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
+</script>
+
+</body>
+</html>
