@@ -514,7 +514,7 @@ R.PH. Group</span></div></div>
       <h2 id="contactTitle">TALK <i>TO</i><br><i>THE</i> CLUB.</h2>
       <p class="contact-copy" id="contactBody">For membership, events, sports activities, sponsorships or community initiatives, send us a message.</p>
       <div class="contact-mini">
-        <a href="mailto:info@mohammedan-sc-faridpur.com">✉ info@mohammedan-sc-faridpur.com</a>
+        <a href="mailto:mohammedanscfaridpur@gmail.com">✉ mohammedanscfaridpur@gmail.com</a>
         <a href="tel:+8801711000000">☎ 01711-00 00 00</a>
       </div>
     </div>
@@ -566,7 +566,7 @@ const content = {
         { title:"Football", body:"Local football activities, training and competitive events.", image:"sports/football.jpg" },
         { title:"Cricket", body:"Youth-focused cricket activities and community matches.", image:"sports/cricket.jpg" },
         { title:"Youth Activities", body:"A platform for young people to learn teamwork, discipline and leadership.", image:"sports/youth.jpg" },
-        { title:"Community Sports", body:"Turning sporting participation into a stronger local community.", image:"sports/community.jpg" }
+        { title:"Community Sports", body:"Turning sporting participation into a stronger local community.", image:"gallery/011.jpg" }
       ],
     },
     committee: {
@@ -622,7 +622,7 @@ const content = {
         { title:"ফুটবল", body:"স্থানীয় ফুটবল কার্যক্রম, প্রশিক্ষণ ও প্রতিযোগিতামূলক আয়োজন।", image:"sports/football.jpg" },
         { title:"ক্রিকেট", body:"তরুণদের জন্য ক্রিকেট কার্যক্রম ও কমিউনিটি ম্যাচ।", image:"sports/cricket.jpg" },
         { title:"তরুণ কার্যক্রম", body:"দলগত কাজ, শৃঙ্খলা ও নেতৃত্ব শেখার একটি প্ল্যাটফর্ম।", image:"sports/youth.jpg" },
-        { title:"কমিউনিটি স্পোর্টস", body:"খেলাধুলার অংশগ্রহণকে আরও শক্তিশালী স্থানীয় কমিউনিটিতে রূপ দেওয়া।", image:"sports/community.jpg" }
+        { title:"কমিউনিটি স্পোর্টস", body:"খেলাধুলার অংশগ্রহণকে আরও শক্তিশালী স্থানীয় কমিউনিটিতে রূপ দেওয়া।", image:"gallery/011.jpg" }
       ],
     },
     committee: {
@@ -703,7 +703,7 @@ const gallery = [
   { title:"Badminton Match", category:"BADMINTON", image:"gallery/010.jpg" },
   { title:"Yearly Kabaddi Festival", category:"KABADDI", image:"gallery/011.jpg" },
   { title:"Kabaddi Match", category:"KABADDI", image:"gallery/012.jpg" },
-  { title:"Club Moments", category:"CLUB", image:"gallery/013.jpg" }
+  { title:"Mohammedan Sporting Club — Faridpur", category:"CLUB", image:"gallery/013.jpg" }
 ];
 
 // ===== STATE =====
@@ -785,10 +785,62 @@ function renderSports() {
 }
 
 // ===== CLUB MEMBERS =====
+// Paste the "Publish to web -> CSV" link of the member sheet between the quotes.
+// Sheet columns (first row must be exactly these headers):
+//   id | name_en | name_bn | photo
+// photo = a file name inside members/  (e.g. MSC-018.jpg) or a full https link. Leave blank for initials.
+const MEMBERS_SHEET_CSV = '';
+
 let membersOpen = false;
+let sheetMembers = [];
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [], cell = '', quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) {
+      if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+      else if (c === '"') quoted = false;
+      else cell += c;
+    } else if (c === '"') quoted = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n') { row.push(cell); rows.push(row); row = []; cell = ''; }
+    else if (c !== '\r') cell += c;
+  }
+  if (cell || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+
+async function loadSheetMembers() {
+  if (!MEMBERS_SHEET_CSV) return;
+  try {
+    const res = await fetch(MEMBERS_SHEET_CSV, { cache: 'no-store' });
+    const rows = parseCsv(await res.text()).filter(r => r.some(c => c.trim()));
+    if (rows.length < 2) return;
+    const head = rows[0].map(h => h.trim().toLowerCase());
+    const col = (n) => head.indexOf(n);
+    sheetMembers = rows.slice(1).map(r => {
+      const id = (r[col('id')] || '').trim();
+      const en = (r[col('name_en')] || '').trim();
+      const bn = (r[col('name_bn')] || '').trim();
+      const photo = (r[col('photo')] || '').trim();
+      if (!id || !(en || bn)) return null;
+      const m = { id, name: { en: en || bn, bn: bn || en } };
+      if (photo) m.image = /^https?:/i.test(photo) ? photo : 'members/' + photo;
+      return m;
+    }).filter(Boolean);
+    if (membersOpen) renderMembers('');
+  } catch (err) {
+    // sheet unreachable — the built-in list still shows
+  }
+}
 
 function allMembers() {
-  return committee.concat(extraMembers).slice().sort((a, b) => a.id.localeCompare(b.id));
+  const seen = new Set();
+  return committee.concat(extraMembers, sheetMembers)
+    .filter(m => { if (seen.has(m.id)) return false; seen.add(m.id); return true; })
+    .slice().sort((a, b) => a.id.localeCompare(b.id));
 }
 
 function renderMembers(filter) {
@@ -1262,6 +1314,7 @@ renderGallery();
 renderAll();
 setTimeout(initReveal, 60);
 window.addEventListener('load', initReveal);
+loadSheetMembers();
 </script>
 </body>
 </html>
