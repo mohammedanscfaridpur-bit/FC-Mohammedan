@@ -242,8 +242,8 @@ button{cursor:pointer}
 .committee-rest{scroll-margin-top:105px;max-height:0;overflow:hidden;opacity:0;margin-top:0;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .35s ease,margin-top .4s ease}
 .committee-rest.open{max-height:4000px;opacity:1;margin-top:12px}
 .committee-cta b{font-style:normal;font-weight:700}
-.committee-head-row{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
-.committee-head-row .section-heading.below{margin:22px 0 30px;max-width:none;flex:0 1 auto;min-width:0}
+.committee-head-row{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-bottom:28px}
+.committee-head-row .section-heading.below{margin:0 0 6px;max-width:none;flex:0 1 auto;min-width:0}
 .committee-actions{flex:none}
 .committee-cta{position:relative;overflow:hidden;border:1px solid #111;background:transparent;color:#111;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:0 23px;min-height:52px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;transition:color .3s ease}
 .committee-cta::after{content:'';position:absolute;top:0;right:0;width:0;height:100%;background:#111;z-index:1;transition:width .4s ease-in-out}
@@ -390,7 +390,7 @@ button{cursor:pointer}
   </nav>
   <div class="nav-actions">
     <button class="language" onclick="toggleLang()" id="langBtn" title="Switch language"><svg class="lang-ico" viewBox="0 0 26 26" aria-hidden="true"><rect class="tile" x="5" y="0.5" width="12.5" height="12.5" rx="3.6"/><text class="glyph" x="11.25" y="9.4" text-anchor="middle">文</text><rect class="tile front" x="12.5" y="8" width="12.5" height="12.5" rx="3.6"/><text class="glyph" x="18.75" y="16.9" text-anchor="middle">A</text><path class="swap" d="M9.2 22.6C5.9 22.1 3.4 19.6 2.9 16.3"/><path class="swaphead" d="M2.9 14.6 4.6 17.4 1.2 17.4Z"/><path class="swap" d="M2.6 18.6C3.4 21.6 5.8 23.9 8.9 24.5"/><path class="swaphead" d="M10.6 24.7 7.9 26.2 7.9 22.9Z"/></svg><span id="langLabel">বা</span></button>
-    <a class="nav-fb" href="https://www.facebook.com/profile.php?id=61594198401580" target="_blank" rel="noreferrer" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.93 8.44-9.94z"/></svg></a>
+    <a class="nav-fb" href="https://www.facebook.com/profile.php?id=61594035508636" target="_blank" rel="noreferrer" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.5-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.93 8.44-9.94z"/></svg></a>
     <button class="menu-btn" onclick="toggleMenu()" id="menuBtn">☰</button>
   </div>
 </header>
@@ -471,7 +471,6 @@ R.PH. Group</span></div></div>
 
 <!-- ===== COMMITTEE ===== -->
 <section id="committee" class="section committee">
-  <div class="leaders" id="leaders"></div>
   <div class="committee-head-row">
     <div class="section-heading wide below">
       <h2 id="committeeTitle"><i>THE</i> PEOPLE <i>BEHIND THE</i> CLUB.</h2>
@@ -481,6 +480,7 @@ R.PH. Group</span></div></div>
       <button class="committee-cta" onclick="toggleMembers()"><span id="membersLabel">Club members</span> <b id="membersArrow">↓</b></button>
     </div>
   </div>
+  <div class="leaders" id="leaders"></div>
   <div class="leaders committee-rest" id="committeeRest"></div>
   <div class="members-wrap" id="membersWrap"></div>
 </section>
@@ -521,7 +521,7 @@ R.PH. Group</span></div></div>
       <h2 id="contactTitle">TALK <i>TO</i><br><i>THE</i> CLUB.</h2>
       <p class="contact-copy" id="contactBody">For membership, events, sports activities, sponsorships or community initiatives, send us a message.</p>
       <div class="contact-mini">
-        <a href="mailto:mohammedanscfaridpur@gmail.com">✉ mohammedanscfaridpur@gmail.com</a>
+        <a href="mailto:info@mohammedan-sc-faridpur.com">✉ info@mohammedan-sc-faridpur.com</a>
         <a href="tel:+8801711000000">☎ 01711-00 00 00</a>
       </div>
     </div>
