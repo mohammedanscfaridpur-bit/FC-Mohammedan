@@ -614,7 +614,7 @@ R.PH. Group</span></div></div>
 <footer class="footer">
   <div><strong>MOHAMMEDAN SPORTING CLUB</strong><span class="footer-sub">FARIDPUR DIVISION</span></div>
   <p>© 2026 Mohammedan Sporting Club — Faridpur. <span id="footerRights">All rights reserved.</span></p>
-  <a class="developer" href="https://www.gravalley.com" target="_blank" rel="noreferrer"><span id="footerDev">Developed by</span> <b class="gv"><span class="gv-a">grav</span><span class="gv-b">alley</span><span class="gv-a"></span></b> ↗</a>
+  <a class="developer" href="https://www.gravalley.com" target="_blank" rel="noreferrer"><span id="footerDev">Developed by</span> <b class="gv"><span class="gv-a">grav</span><span class="gv-b">alley</span><span class="gv-a">.com</span></b> ↗</a>
 </footer>
 
 <script>
@@ -1307,7 +1307,7 @@ const govShortRoles = {
   'MSC-001': { en: 'MP — Faridpur-04', bn: 'এমপি — ফরিদপুর-০৪' },
   'MSC-002': { en: 'MP — Faridpur-03', bn: 'এমপি — ফরিদপুর-০৩' },
   'MSC-003': { en: 'MD, R.PH. Group',  bn: 'এমডি, আর.পি.এইচ. গ্রুপ' },
-  'MSC-004': { en: 'Gen. Secretary',   bn: 'সাধারণ সম্পাদক' }
+  'MSC-004': { en: '', bn: '' }
 };
 
 function renderGovMobile() {
@@ -1317,7 +1317,7 @@ function renderGovMobile() {
     name: x.name[lang].replace(/^(MP|এমপি)\s+/, ''),
     image: x.image,
     title: x.role[lang],
-    role: (govShortRoles[x.id] || {})[lang] || x.role[lang]
+    role: govShortRoles[x.id] ? govShortRoles[x.id][lang] : x.role[lang]
   }));
   const p = people[govIndex % people.length];
   const head = lang === 'en' ? '2026 COMMITTEE' : '২০২৬ কমিটি';
@@ -1327,7 +1327,7 @@ function renderGovMobile() {
       ${p.image ? `<img src="${p.image}" alt="${p.name}" onerror="this.style.display='none'" />` : ''}
       <em>${p.title}</em>
       <b>${p.name}</b>
-      <small>${p.role}</small>
+      ${p.role ? `<small>${p.role}</small>` : ''}
     </div>`;
   requestAnimationFrame(() => {
     const el = document.getElementById('gmSlide');
