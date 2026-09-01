@@ -99,7 +99,8 @@ button{cursor:pointer}
 /* ===== GOV PANEL ===== */
 .gov-mobile{display:none}
 @media(max-width:900px){
-  .gov-mobile{display:block;position:absolute;top:74px;right:4vw;z-index:9;width:132px;text-align:center;background:rgba(4,9,5,.82);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:12px;overflow:hidden}
+  .gov-mobile{display:block;position:absolute;top:74px;right:4vw;z-index:9;width:132px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .25s ease,border-color .25s ease;text-align:center;background:rgba(4,9,5,.82);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:12px;overflow:hidden}
+  .gov-mobile:active{transform:scale(.97);border-color:rgba(255,255,255,.4)}
   .gov-mobile .gm-head{font-size:7.5px;letter-spacing:.12em;white-space:nowrap;text-transform:uppercase;color:#cfe8c2;padding:6px 5px;border-bottom:1px solid rgba(255,255,255,.12)}
   .gov-mobile .gm-slide{opacity:0;transition:opacity 1.1s ease}
   .gov-mobile .gm-slide.in{opacity:1}
@@ -417,7 +418,7 @@ button{cursor:pointer}
   <div class="hero-grid-lines"></div>
 
   <!-- Governing Body Panel -->
-  <div class="gov-mobile" id="govMobile" aria-hidden="true"></div>
+  <div class="gov-mobile" id="govMobile" onclick="navScrollTo('committee')" role="link" tabindex="0" title="View the committee"></div>
   <div class="hero-gov-panel" id="govPanel">
     <div class="hero-gov-header" id="govHeader">2026 ELECTED COMMITTEE</div>
     <div class="hero-gov-list" id="govList">
