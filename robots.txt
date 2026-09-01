@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /article.html
+
+Sitemap: https://mohammedan-sc-faridpur.com/sitemap.xml
